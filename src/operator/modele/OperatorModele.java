@@ -5,10 +5,20 @@
  */
 package operator.modele;
 
+import java.util.*;
+import operator.main.Log;
 /**
  *
  * @author Thoma
  */
+
 public class OperatorModele {
+    protected List<Déplacement> mesDéplacements = new ArrayList<>();
+    
+    
+    public OperatorModele(){
+        
+    }
+    
     
 }

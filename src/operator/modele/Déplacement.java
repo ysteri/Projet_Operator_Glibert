@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * @author Thomas
  */
-public class Déplacement {
+public abstract class Déplacement {
 
     /**
      * Default constructor
@@ -39,6 +39,7 @@ public class Déplacement {
 
     public Déplacement() {
         //constructeur par défaut
+      
     }
     
     public Déplacement(float prix,String départ_date, String arrivée_date,String départ_heure, String arrivée_heure){//constructeur complet
@@ -121,11 +122,54 @@ public class Déplacement {
     }
 
     /**
-     * @param value
+     * 
      */
     public void setArrivée_heure(String arrivée_heure) {
         // TODO implement here
         this.arrivée_heure=arrivée_heure;
+    }
+    
+    @Override
+    public String toString() {
+        return "prix=" + prix + ", départ_date=" + départ_date + 
+                ", arrivée_date=" + arrivée_date + ", départ_heure=" + départ_heure
+                + ", arrivée_heure=" + arrivée_heure;
+    }
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.départ_date);
+        hash = 23 * hash + Objects.hashCode(this.arrivée_date);
+        hash = 23 * hash + Objects.hashCode(this.départ_heure);
+        hash = 23 * hash + Objects.hashCode(this.arrivée_heure);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Déplacement other = (Déplacement) obj;
+        if (!Objects.equals(this.départ_date, other.départ_date)) {
+            return false;
+        }
+        if (!Objects.equals(this.arrivée_date, other.arrivée_date)) {
+            return false;
+        }
+        if (!Objects.equals(this.départ_heure, other.départ_heure)) {
+            return false;
+        }
+        if (!Objects.equals(this.arrivée_heure, other.arrivée_heure)) {
+            return false;
+        }
+        return true;
     }
 
 }

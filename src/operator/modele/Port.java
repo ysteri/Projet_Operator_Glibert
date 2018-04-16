@@ -15,17 +15,17 @@ public class Port {
       /**
      * 
      */
-    protected String code_port;
+    private String code_port;
 
     /**
      * 
      */
-    protected String ville;
+    private String ville;
 
     /**
      * 
      */
-    protected String pays;
+    private String pays;
 
     public Port() {
         //constructeur par défaut
@@ -77,6 +77,37 @@ public class Port {
     public void setPays(String pays) {
         // TODO implement here
         this.pays=pays;
+    }
+    
+    @Override
+    public String toString() {
+        return "code_port=" + code_port + ", ville=" + ville + ", pays=" + pays;              
+    }
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.code_port);
+        hash = 23 * hash + Objects.hashCode(this.ville);
+        hash = 23 * hash + Objects.hashCode(this.pays);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Port other = (Port) obj;
+        if (!Objects.equals(this.code_port, other.code_port)) {
+            return false;
+        }
+        return true;
     }
 
 }

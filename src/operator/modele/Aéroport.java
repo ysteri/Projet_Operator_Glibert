@@ -9,27 +9,24 @@ import java.util.*;
 public class Aéroport {
 
     /**
-     * Default constructor
-     */
-       /**
      * 
      */
-    protected String code_aéroport;
+    private String code_aéroport;
 
     /**
      * 
      */
-    protected String nom;
+    private String nom;
 
     /**
      * 
      */
-    protected String ville;
+    private String ville;
 
     /**
      * 
      */
-    protected String pays;
+    private String pays;
 
     public Aéroport() {
         //constructeur par défaut
@@ -103,6 +100,39 @@ public class Aéroport {
     public void setPays(String pays) {
         // TODO implement here
         this.pays=pays;
+    }
+    
+     @Override
+    public String toString() {
+        return "code_aéroport=" + code_aéroport + ", nom=" + nom + 
+                ", ville=" + ville + ", pays=" + pays;              
+    }
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.code_aéroport);
+        hash = 23 * hash + Objects.hashCode(this.nom);
+        hash = 23 * hash + Objects.hashCode(this.ville);
+        hash = 23 * hash + Objects.hashCode(this.pays);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Aéroport other = (Aéroport) obj;
+        if (!Objects.equals(this.code_aéroport, other.code_aéroport)) {
+            return false;
+        }
+        return true;
     }
 
 }

@@ -15,27 +15,27 @@ public class Vol extends Déplacement {
       /**
      * 
      */
-    protected String code_vol;
+    private String code_vol;
 
     /**
      * 
      */
-    protected String départ_aéroport;
+    private String départ_aéroport;
 
     /**
      * 
      */
-    protected String arrivée_aéroport;
+    private String arrivée_aéroport;
 
     /**
      * 
      */
-    protected Aéroport dep;
+    private Aéroport dep;
 
     /**
      * 
      */
-    protected Aéroport arr;
+    private Aéroport arr;
 
     public Vol() {
         //constructeur par défaut
@@ -87,6 +87,38 @@ public class Vol extends Déplacement {
     public void setArrivée_aéroport(String arrivée_aéroport) {
         // TODO implement here
         this.arrivée_aéroport=arrivée_aéroport;
+    }
+    
+    @Override
+    public String toString() {
+        return "code_vol=" + code_vol + 
+                ", départ_aéroport=" + départ_aéroport + ", arrivée_aéroport=" + arrivée_aéroport;              
+    }
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.code_vol);
+        hash = 23 * hash + Objects.hashCode(this.départ_aéroport);
+        hash = 23 * hash + Objects.hashCode(this.arrivée_aéroport);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Vol other = (Vol) obj;
+        if (!Objects.equals(this.code_vol, other.code_vol)) {
+            return false;
+        }
+        return true;
     }
 
 }

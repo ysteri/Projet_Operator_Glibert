@@ -16,27 +16,27 @@ public class Bateau extends Voyage {
        /**
      * 
      */
-    protected String code_bateau;
+    private String code_bateau;
 
     /**
      * 
      */
-    protected float sup_single;
+    private float sup_single;
 
     /**
      * 
      */
-    protected String départ_port;
+    private String départ_port;
 
     /**
      * 
      */
-    protected String arrivée_port;
+    private String arrivée_port;
 
     /**
      * 
      */
-    private Port dep;
+    private Port dép;
 
     /**
      * 
@@ -47,12 +47,12 @@ public class Bateau extends Voyage {
         //constructeur par défaut
     }
     
-    public Bateau(String code_bateau,float sup_single, String départ_port,String arrivée_port,Port dep,Port arr){//constructeur complet
+    public Bateau(String code_bateau,float sup_single, String départ_port,String arrivée_port,Port dép,Port arr){//constructeur complet
         this.code_bateau=code_bateau;
         this.sup_single=sup_single;
         this.départ_port=départ_port;
         this.arrivée_port=arrivée_port;
-        this.dep=dep;
+        this.dép=dép;
         this.arr=arr;
     }
 
@@ -118,5 +118,39 @@ public class Bateau extends Voyage {
         // TODO implement here
         this.arrivée_port=arrivée_port;
     }
+    
+    @Override
+    public String toString() {
+        return "code_bateau=" + code_bateau + ", sup_single=" + sup_single + 
+                ", départ_port=" + départ_port + ", arrivée_port=" + arrivée_port;              
+    }
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.code_bateau);
+        hash = 23 * hash + Objects.hashCode(this.sup_single);
+        hash = 23 * hash + Objects.hashCode(this.départ_port);
+        hash = 23 * hash + Objects.hashCode(this.arrivée_port);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Bateau other = (Bateau) obj;
+        if (!Objects.equals(this.code_bateau, other.code_bateau)) {
+            return false;
+        }
+        return true;
+    }
 
 }
+

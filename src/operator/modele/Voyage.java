@@ -15,12 +15,12 @@ public class Voyage {
      /**
      * 
      */
-    protected int code_voyage;
+    private int code_voyage;
 
     /**
      * 
      */
-    protected String type;
+    private String type;
 
     public Voyage() {
         //constructeur par défaut
@@ -56,6 +56,36 @@ public class Voyage {
     public void setType(String type) {
         // TODO implement here
         this.type=type;
+    }
+    
+    @Override
+    public String toString() {
+        return "code_voyage=" + code_voyage + ", type=" + type;              
+    }
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.code_voyage);
+        hash = 23 * hash + Objects.hashCode(this.type);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Voyage other = (Voyage) obj;
+        if (!Objects.equals(this.code_voyage, other.code_voyage)) {
+            return false;
+        }
+        return true;
     }
 
 }
