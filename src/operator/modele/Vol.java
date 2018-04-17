@@ -8,10 +8,6 @@ import java.util.*;
  */
 public class Vol extends Déplacement {
 
-    /**
-     * Default constructor
-     */
-    
       /**
      * 
      */
@@ -26,19 +22,17 @@ public class Vol extends Déplacement {
      * 
      */
     private String arrivée_aéroport;
-
-    /**
-     * 
-     */
-    private Aéroport dep;
-
-    /**
-     * 
-     */
-    private Aéroport arr;
+    
+    private Aéroport myAéroport;
 
     public Vol() {
         //constructeur par défaut
+    }
+    
+    public Vol(String code_vol, String départ_aéroport,String arrivée_aéroport){//constructeur complet
+        this.code_vol=code_vol;
+        this.départ_aéroport=départ_aéroport;
+        this.arrivée_aéroport=arrivée_aéroport;
     }
 
     /**

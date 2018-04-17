@@ -8,10 +8,6 @@ import java.util.*;
  */
 public class Voyage {
 
-    /**
-     * Default constructor
-     */
-    
      /**
      * 
      */
@@ -21,6 +17,8 @@ public class Voyage {
      * 
      */
     private String type;
+    
+    private Position myPosition;
 
     public Voyage() {
         //constructeur par défaut

@@ -6,36 +6,32 @@ import java.util.*;
 /**
  * @author Thomas
  */
-public abstract class Déplacement {
-
-    /**
-     * Default constructor
-     */
+public class Déplacement {
     
       /**
      * 
      */
-    protected float prix;
+    private float prix;
 
     /**
      * 
      */
-    protected String départ_date;
+    private String départ_date;
 
     /**
      * 
      */
-    protected String arrivée_date;
+    private String arrivée_date;
 
     /**
      * 
      */
-    protected String départ_heure;
+    private String départ_heure;
 
     /**
      * 
      */
-    protected String arrivée_heure;
+    private String arrivée_heure;
 
     public Déplacement() {
         //constructeur par défaut

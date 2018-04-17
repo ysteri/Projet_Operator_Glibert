@@ -10,11 +10,6 @@ import java.util.*;
 public class Position {
 
     /**
-     * Default constructor
-     */
-    
-    
-    /**
      * 
      */
     private int num;
@@ -22,16 +17,14 @@ public class Position {
     /**
      * 
      */
-    private Voyage à;
-
+    private Déplacement myDéplacement[];
 
     public Position() {
         //constructeur par défaut
     }
     
-    public Position(int num, Voyage à){//constructeur complet
+    public Position(int num){//constructeur complet
         this.num=num;
-        this.à=à;
     }
 
     /**

@@ -8,11 +8,8 @@ import java.util.*;
 /**
  * @author Thomas
  */
-public class Bateau extends Voyage {
+public class Bateau extends Déplacement {
 
-    /**
-     * Default constructor
-     */
        /**
      * 
      */
@@ -33,27 +30,17 @@ public class Bateau extends Voyage {
      */
     private String arrivée_port;
 
-    /**
-     * 
-     */
-    private Port dép;
-
-    /**
-     * 
-     */
-    private Port arr;
+    private Port myPort;
     
     public Bateau() {
         //constructeur par défaut
     }
     
-    public Bateau(String code_bateau,float sup_single, String départ_port,String arrivée_port,Port dép,Port arr){//constructeur complet
+    public Bateau(String code_bateau,float sup_single, String départ_port,String arrivée_port){//constructeur complet
         this.code_bateau=code_bateau;
         this.sup_single=sup_single;
         this.départ_port=départ_port;
         this.arrivée_port=arrivée_port;
-        this.dép=dép;
-        this.arr=arr;
     }
 
     /**
