@@ -1,8 +1,8 @@
 package operator.modele;
 
 
-import operator.modele.Voyage;
-import operator.modele.Port;
+//import operator.modele.Voyage;
+//import operator.modele.Port;
 import java.util.*;
 
 /**
@@ -34,6 +34,10 @@ public class Bateau extends Deplacement {
     
     public Bateau() {
         //constructeur par défaut
+    }
+    
+    public Bateau(String codeBateau){//constructeur basé sur les criètres de recherche
+        this.codeBateau=codeBateau;
     }
     
     public Bateau(String codeBateau,float supSingle, String departPort,String arriveePort){//constructeur complet

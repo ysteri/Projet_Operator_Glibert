@@ -55,6 +55,19 @@ public class OperatorVue {
         return p;
     }
     
+    public void affDeplacementBateau(Bateau b){
+        affMsg("Code du deplacement en bateau : "+b.getCodeBateau());
+        affMsg("Supplément single : "+b.getSupSingle());
+        affMsg("Port de départ : "+b.getDepartPort());
+        affMsg("Port d'arrivée : "+b.getArriveePort());
+    }
+    
+    public void affPort(Port p){
+        affMsg("code du port : "+p.getCodePort());
+        affMsg("Ville du port : "+p.getVille());
+        affMsg("Pays du port : "+p.getPays());
+    }
+    
     public String getMsg(){
         String msg = sc.nextLine();
         return msg;

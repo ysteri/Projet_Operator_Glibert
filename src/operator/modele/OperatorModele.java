@@ -57,4 +57,18 @@ public class OperatorModele {
         return mesPorts;
     }
     */
+    
+    public Bateau getDeplacementBateau(String codeRech){
+        Bateau bRech = new Bateau(codeRech);
+        int containt = mesDeplacementsBateau.indexOf(bRech);
+        if(containt<0)return null;
+        else return mesDeplacementsBateau.get(containt);
+    }
+    
+    public Port getPort(String codeRech){
+        Port pRech = new Port(codeRech);
+        int containt = mesPorts.indexOf(pRech);
+        if(containt<0)return null;
+        else return mesPorts.get(containt);
+    }
 }

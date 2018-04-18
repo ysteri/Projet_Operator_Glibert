@@ -7,10 +7,6 @@ import java.util.*;
  * @author Thomas
  */
 public class Port {
-
-    /**
-     * Default constructor
-     */
     
       /**
      * 
@@ -31,6 +27,10 @@ public class Port {
         //constructeur par défaut
     }
 
+    public Port(String codePort){//constructeur basé sur les critères de recherche
+        this.codePort=codePort;
+    }
+    
     public Port(String codePort, String ville, String pays){//constructeur complet
         this.codePort=codePort;
         this.ville=ville;
