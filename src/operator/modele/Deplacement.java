@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * @author Thomas
  */
-public class Déplacement {
+public class Deplacement {
     
       /**
      * 
@@ -33,12 +33,12 @@ public class Déplacement {
      */
     private String arrivée_heure;
 
-    public Déplacement() {
+    public Deplacement() {
         //constructeur par défaut
       
     }
     
-    public Déplacement(float prix,String départ_date, String arrivée_date,String départ_heure, String arrivée_heure){//constructeur complet
+    public Deplacement(float prix,String départ_date, String arrivée_date,String départ_heure, String arrivée_heure){//constructeur complet
         this.prix=prix;
         this.départ_date=départ_date;
         this.arrivée_date=arrivée_date;
@@ -152,7 +152,7 @@ public class Déplacement {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Déplacement other = (Déplacement) obj;
+        final Deplacement other = (Deplacement) obj;
         if (!Objects.equals(this.départ_date, other.départ_date)) {
             return false;
         }

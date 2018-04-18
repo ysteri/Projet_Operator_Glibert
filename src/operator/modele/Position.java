@@ -17,7 +17,7 @@ public class Position {
     /**
      * 
      */
-    private Déplacement myDéplacement[];
+    private Deplacement myDéplacement[];
 
     public Position() {
         //constructeur par défaut

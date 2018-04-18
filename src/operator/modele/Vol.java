@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * @author Thomas
  */
-public class Vol extends Déplacement {
+public class Vol extends Deplacement {
 
       /**
      * 
@@ -23,7 +23,7 @@ public class Vol extends Déplacement {
      */
     private String arrivée_aéroport;
     
-    private Aéroport myAéroport;
+    private Aeroport myAéroport;
 
     public Vol() {
         //constructeur par défaut

@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * @author Thomas
  */
-public class Aéroport {
+public class Aeroport {
 
     /**
      * 
@@ -28,10 +28,10 @@ public class Aéroport {
      */
     private String pays;
 
-    public Aéroport() {
+    public Aeroport() {
         //constructeur par défaut
     }
-    public Aéroport(String code_aéroport,String nom, String ville,String pays){//constructeur complet
+    public Aeroport(String code_aéroport,String nom, String ville,String pays){//constructeur complet
         this.code_aéroport=code_aéroport;
         this.nom=nom;
         this.ville=ville;
@@ -128,7 +128,7 @@ public class Aéroport {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Aéroport other = (Aéroport) obj;
+        final Aeroport other = (Aeroport) obj;
         if (!Objects.equals(this.code_aéroport, other.code_aéroport)) {
             return false;
         }

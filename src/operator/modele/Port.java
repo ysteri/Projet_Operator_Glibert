@@ -15,7 +15,7 @@ public class Port {
       /**
      * 
      */
-    private String code_port;
+    private String codePort;
 
     /**
      * 
@@ -31,20 +31,26 @@ public class Port {
         //constructeur par défaut
     }
 
+    public Port(String codePort, String ville, String pays){//constructeur complet
+        this.codePort=codePort;
+        this.ville=ville;
+        this.pays=pays;
+    }
+    
     /**
      * @return
      */
-    public String getCode_port() {
+    public String getCodePort() {
         // TODO implement here
-        return code_port;
+        return codePort;
     }
 
     /**
-     * @param value
+     *
      */
-    public void setCode_port(String code_port) {
+    public void setCodePort(String codePort) {
         // TODO implement here
-        this.code_port=code_port;
+        this.codePort=codePort;
     }
 
     /**
@@ -56,7 +62,7 @@ public class Port {
     }
 
     /**
-     * @param value
+     *
      */
     public void setVille(String ville) {
         // TODO implement here
@@ -72,7 +78,7 @@ public class Port {
     }
 
     /**
-     * @param value
+     *
      */
     public void setPays(String pays) {
         // TODO implement here
@@ -81,12 +87,12 @@ public class Port {
     
     @Override
     public String toString() {
-        return "code_port=" + code_port + ", ville=" + ville + ", pays=" + pays;              
+        return "code_port=" + codePort + ", ville=" + ville + ", pays=" + pays;              
     }
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 23 * hash + Objects.hashCode(this.code_port);
+        hash = 23 * hash + Objects.hashCode(this.codePort);
         hash = 23 * hash + Objects.hashCode(this.ville);
         hash = 23 * hash + Objects.hashCode(this.pays);
         return hash;
@@ -104,7 +110,7 @@ public class Port {
             return false;
         }
         final Port other = (Port) obj;
-        if (!Objects.equals(this.code_port, other.code_port)) {
+        if (!Objects.equals(this.codePort, other.codePort)) {
             return false;
         }
         return true;
