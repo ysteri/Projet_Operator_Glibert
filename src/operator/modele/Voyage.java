@@ -18,7 +18,7 @@ public class Voyage {
      */
     private String type;
     
-    private Position myPosition;
+    //private Position myPosition;
 
     public Voyage() {
         //constructeur par défaut

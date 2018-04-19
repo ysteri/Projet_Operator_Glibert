@@ -21,6 +21,7 @@ public class OperatorVue {
             "Ajouter un port",
             "Afficher les déplacements par bateau",
             "Afficher les ports",
+            "Modifier le supplément single",
             "Fin"));
         affListe(listeOptions);
         
@@ -34,6 +35,18 @@ public class OperatorVue {
             affMsg("choix incorrect");
         }while(true);
         return choix;
+    }
+    
+    public String rechercherPort(){
+        String codePort;
+        codePort = getMsg("Code du port : ");
+        return codePort;
+    }
+            
+    public String rechercherDeplacementBateau(){
+        String codeBateau;
+        codeBateau = getMsg("Code du DéplacementBateau : ");
+        return codeBateau;
     }
     
     public Bateau encodeDeplacementBateau(){

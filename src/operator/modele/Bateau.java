@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * @author Thomas
  */
-public class Bateau extends Deplacement {
+public class Bateau /*extends Deplacement*/ {
 
        /**
      *

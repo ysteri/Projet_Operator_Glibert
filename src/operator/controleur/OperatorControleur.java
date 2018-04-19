@@ -39,22 +39,22 @@ public void gestion(){
             case 2:
                 ajoutPort();
                 break;
-            case 3:/*
-                listeDeplacementBateau();
-                */
+            case 3:
+                listeDeplacementsBateau();
                 break;
-            case 4:
-                /*
-                listePort();
-                */
+            case 4:         
+                listePorts();
                 break;
             case 5:
+                modifierSupSingle();
+                break;
+            case 6:
                 ov.affMsg("Aurevoir !");
                 break;
             default:
                 ov.affMsg("Choix incorrect !");
         }
-    }while(choix != 5);
+    }while(choix != 6);
 }
 
 public void ajoutDeplacementBateau(){
@@ -69,18 +69,40 @@ public void ajoutPort(){
     ov.affMsg(msg);
 }
 
+public void modifierSupSingle(){
+    Bateau b = rechercherDeplacementBateau();
+    if(b==null){
+        ov.affMsg("DéplacementBateau introuvable !");
+        return;
+    }
+    ov.affDeplacementBateau(b);
+    String newSS = ov.getMsg("Nouveau supplément single : ");
+    float newSupSingle = Float.parseFloat(newSS);
+    String msg = om.modifierSupSingle(b, newSupSingle);
+}
+
+public Bateau rechercherDeplacementBateau(){
+    String codeBateau = ov.rechercherDeplacementBateau();
+    return om.getDeplacementBateau(codeBateau);
+}
+
+public Port rechercherPort(){
+    String codePort = ov.rechercherPort();
+    return om.getPort(codePort);
+}
+
 public void listeDeplacementsBateau(){
-    /*
+    
     List<Bateau> lb = om.tousDeplacementsBateau();
-    ov.affListe(lp);
-    */
+    ov.affListe(lb);
+    
 }
 
 public void listePorts(){
-    /*
+    
     List<Port> lp = om.tousPorts();
     ov.affListe(lp);
-    */
+    
 }
 
 

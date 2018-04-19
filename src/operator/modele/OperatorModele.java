@@ -47,28 +47,47 @@ public class OperatorModele {
         return "Ajout port effectué !";
     }
     
-    /*public List<Bateau> tousDeplacementsBateau(){
-        mesDeplacementsBateau.sort(new InfosDeplacementBateauComparator());
+    public List<Bateau> tousDeplacementsBateau(){
+        mesDeplacementsBateau.sort(new CodeDeplacementBateauComparator());
         return mesDeplacementsBateau;
     }
     
     public List<Port> tousPorts(){
-        mesPorts.sort(new InfosPortComparator());
+        mesPorts.sort(new CodePortComparator());
         return mesPorts;
     }
-    */
     
-    public Bateau getDeplacementBateau(String codeRech){
-        Bateau bRech = new Bateau(codeRech);
-        int containt = mesDeplacementsBateau.indexOf(bRech);
+    public Bateau getDeplacementBateau(String codeBateau){
+        Bateau b = new Bateau();
+        b.setCodeBateau(codeBateau);
+        int containt = mesDeplacementsBateau.indexOf(b.getCodeBateau());
         if(containt<0)return null;
         else return mesDeplacementsBateau.get(containt);
     }
     
-    public Port getPort(String codeRech){
-        Port pRech = new Port(codeRech);
-        int containt = mesPorts.indexOf(pRech);
+
+    
+    public Port getPort(String codePort){
+        Port p = new Port(codePort);
+        int containt = mesPorts.indexOf(p.getCodePort());
         if(containt<0)return null;
         else return mesPorts.get(containt);
+    }
+    
+    public String modifierSupSingle(Bateau b,float SupSingle){
+        b.setSupSingle(SupSingle);
+        return "changement du supplément single effectué !";
+    }
+    
+    public String suppDeplacementBateau(Bateau b){
+        boolean ok = mesDeplacementsBateau.remove(b);
+        if(ok) return "DeplacementBateau supprimé !";
+        else return "voiture introuvable ou suppression impossible !";
+    }
+    
+    public String suppPort(Port p){
+        boolean ok = mesPorts.remove(p);
+        if(ok) return "Port supprimé !";
+        else return "Port introuvable ou suppression impossible !";
     }
 }
