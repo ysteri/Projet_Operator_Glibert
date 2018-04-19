@@ -13,14 +13,25 @@ import operator.main.Log;
  */
 
 public class OperatorModele {
+    /**
+     * liste de tous les voyages en bateau
+     */
     protected List<Bateau> mesDeplacementsBateau = new ArrayList<>();
+    /**
+     * liste de tous les ports
+     */
     protected List<Port> mesPorts = new ArrayList<>();
     
-    
+    /**
+     * constructeur par défaut
+     */
     public OperatorModele(){
-        //constructeur par défaut
     }
-    
+    /**
+     * méthode permettant l'ajout d'un voyage en bateau
+     * @param b voyage en bateau à ajouter
+     * @return diagnostic de l'ajout
+     */
     public String ajouterDeplacementBateau(Bateau b){
         if(b==null)return "DéplacementBateau nul !";
         if(mesDeplacementsBateau.contains(b)){
@@ -33,7 +44,11 @@ public class OperatorModele {
         lg.ajouter("DéplacementBateau "+b+" enregistré !");
         return "Ajout DéplacementBateau effectué !";
     }
-    
+    /**
+     * méthode permettant l'ajout d'un port
+     * @param p port à ajouter
+     * @return diagnostic de l'ajout
+     */
     public String ajouterPort(Port p){
         if(p==null)return "Port nul !";
         if(mesPorts.contains(p)){
@@ -46,45 +61,69 @@ public class OperatorModele {
         lg.ajouter("Port "+p+" enregistré !");
         return "Ajout port effectué !";
     }
-    
+    /**
+     * méthode permettant de retrouver tous les voyages en bateau
+     * @return tous les voyages en bateau
+     */
     public List<Bateau> tousDeplacementsBateau(){
         mesDeplacementsBateau.sort(new CodeDeplacementBateauComparator());
         return mesDeplacementsBateau;
     }
-    
+    /**
+     * méthode permettant de retrouver tous les ports
+     * @return tous les ports
+     */
     public List<Port> tousPorts(){
         mesPorts.sort(new CodePortComparator());
         return mesPorts;
     }
-    
+    /**
+     * méthode permettant de trouver un voyage en bateau sur base de son code
+     * @param codeBateau object encapsulant le code 
+     * @return voyage en bateau trouvé ou null si aucun ne correspond
+     */
     public Bateau getDeplacementBateau(String codeBateau){
-        Bateau b = new Bateau();
-        b.setCodeBateau(codeBateau);
-        int containt = mesDeplacementsBateau.indexOf(b.getCodeBateau());
+        Bateau b = new Bateau(codeBateau);
+        int containt = mesDeplacementsBateau.indexOf(b);
         if(containt<0)return null;
         else return mesDeplacementsBateau.get(containt);
     }
-    
-
-    
+    /**
+     * méthode permettant de trouver un port sur base de son code
+     * @param codePort object encapsulant le code
+     * @return port trouvé ou null si aucun ne correspond
+     */
     public Port getPort(String codePort){
         Port p = new Port(codePort);
         int containt = mesPorts.indexOf(p.getCodePort());
         if(containt<0)return null;
         else return mesPorts.get(containt);
     }
-    
-    public String modifierSupSingle(Bateau b,float SupSingle){
-        b.setSupSingle(SupSingle);
+    /**
+     * méthode permettant de changer le supplément single d'un voyage en bateau
+     * @param b voyage en bateau dont on désire changer le supplément single
+     * @param supSingle nouveau supplément single
+     * @return diagnostic de la modification
+     */
+    public String modifierSupSingle(Bateau b,float supSingle){
+        b.setSupSingle(supSingle);
         return "changement du supplément single effectué !";
     }
-    
+    /**
+     * méthode permettant de supprimer un voyage en bateau
+     * @param b voyage en bateau à supprimer
+     * @return diagnostic de la suppression
+     */
     public String suppDeplacementBateau(Bateau b){
         boolean ok = mesDeplacementsBateau.remove(b);
         if(ok) return "DeplacementBateau supprimé !";
         else return "voiture introuvable ou suppression impossible !";
     }
-    
+    /**
+     * méthode permettant de supprimer un port
+     * @param p port à supprimer
+     * @return diagnostic de la suppression
+     */
     public String suppPort(Port p){
         boolean ok = mesPorts.remove(p);
         if(ok) return "Port supprimé !";

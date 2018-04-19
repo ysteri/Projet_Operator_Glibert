@@ -30,6 +30,7 @@ public OperatorControleur(OperatorModele om, OperatorVue ov){
 
 public void gestion(){
     int choix;
+    creationPorts();
     do{
         choix = ov.menu();
         switch (choix){
@@ -49,12 +50,15 @@ public void gestion(){
                 modifierSupSingle();
                 break;
             case 6:
+                supprimerDeplacementBateau();
+                break;
+            case 7:
                 ov.affMsg("Aurevoir !");
                 break;
             default:
                 ov.affMsg("Choix incorrect !");
         }
-    }while(choix != 6);
+    }while(choix != 7);
 }
 
 public void ajoutDeplacementBateau(){
@@ -69,6 +73,31 @@ public void ajoutPort(){
     ov.affMsg(msg);
 }
 
+public void creationPorts(){
+    ov.affMsg("Création d'une suite de ports");
+    Port a = new Port("A1","Marseille","France");
+    String msg1 = om.ajouterPort(a);
+    Port b = new Port("A2","Paris","France");
+    String msg2 = om.ajouterPort(b);
+    Port c = new Port("A3","Dijon","France");
+    String msg3 = om.ajouterPort(c);
+    Port d = new Port("A4","Maubeuge","France");
+    String msg4 = om.ajouterPort(d);
+    Port e = new Port("A5","Bordeaux","France");
+    String msg5 = om.ajouterPort(e);
+    Port f = new Port("A6","Bruxelles","Belgique");
+    String msg6 = om.ajouterPort(f);
+    Port g = new Port("A7","Mons","Belgique");
+    String msg7 = om.ajouterPort(g);
+    Port h = new Port("A8","Anvers","Belgique");
+    String msg8 = om.ajouterPort(h);
+    Port i = new Port("A9","Charleroi","Belgique");
+    String msg9 = om.ajouterPort(i);
+    Port j = new Port("A10","Gant","Belgique");
+    String msg10 = om.ajouterPort(j);
+    ov.affMsg("Ports créés !");
+}
+
 public void modifierSupSingle(){
     Bateau b = rechercherDeplacementBateau();
     if(b==null){
@@ -79,6 +108,23 @@ public void modifierSupSingle(){
     String newSS = ov.getMsg("Nouveau supplément single : ");
     float newSupSingle = Float.parseFloat(newSS);
     String msg = om.modifierSupSingle(b, newSupSingle);
+    ov.affMsg(msg);
+}
+
+public void supprimerDeplacementBateau(){
+    Bateau b = rechercherDeplacementBateau();
+    if(b==null){
+        ov.affMsg("Déplacement introuvable !");
+        return;
+    }
+    ov.affDeplacementBateau(b);
+    String supp = ov.getMsg("êtes-vous sur de vouloir le supprimer? oui/non");
+    if(supp.equals("oui")){
+        String msg = om.suppDeplacementBateau(b);
+        ov.affMsg(msg);
+    }
+    else ov.affMsg("Suppression annulée !");
+        
 }
 
 public Bateau rechercherDeplacementBateau(){

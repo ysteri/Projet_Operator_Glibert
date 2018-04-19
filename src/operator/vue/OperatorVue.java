@@ -7,6 +7,7 @@ package operator.vue;
 
 import operator.modele.Bateau;
 import operator.modele.Port;
+import operator.controleur.OperatorControleur;
 import java.util.*;
 /**
  *
@@ -14,6 +15,7 @@ import java.util.*;
  */
 public class OperatorVue {
     private Scanner sc = new Scanner(System.in);
+    private OperatorControleur oc = null;
     
     public int menu(){
         List<String> listeOptions = new ArrayList<>(Arrays.asList(
@@ -22,6 +24,7 @@ public class OperatorVue {
             "Afficher les déplacements par bateau",
             "Afficher les ports",
             "Modifier le supplément single",
+            "Supprimer un DéplacementBateau",
             "Fin"));
         affListe(listeOptions);
         
@@ -56,7 +59,7 @@ public class OperatorVue {
         float supSingle = Float.parseFloat(supSingles);
         String departPort = getMsg("Entrez le port de départ : ");
         String arriveePort = getMsg("Entrez le port d'arrivée : ");
-        Bateau b = new Bateau(codeBateau, supSingle, departPort, arriveePort);
+        Bateau b = new Bateau(codeBateau, supSingle,departPort,arriveePort);
         return b;
     }
     
@@ -101,8 +104,5 @@ public class OperatorVue {
             affMsg((i++)+"." + o);
         }
     }
- 
-    
-    
-    
+
 }
