@@ -123,7 +123,7 @@ public class OperatorModele {
     public String suppDeplacementBateau(Bateau b){
         boolean ok = mesDeplacementsBateau.remove(b);
         if(ok) return "DeplacementBateau supprimé !";
-        else return "voiture introuvable ou suppression impossible !";
+        else return "DeplacementBateau introuvable ou suppression impossible !";
     }
     /**
      * méthode permettant de supprimer un port

@@ -44,11 +44,17 @@ public class OperatorModeleTest {
     @Test
     public void testAjouterDeplacementBateau() {
         System.out.println("ajouterDeplacementBateau");
-        Bateau b = new Bateau();
+        Bateau b1 = new Bateau("aa12");
         OperatorModele instance = new OperatorModele();
-        String expResult = "Ajout DéplacementBateau effectué !";
-        String result = instance.ajouterDeplacementBateau(b);
-        assertEquals("Ajout",expResult, result);
+        String expResult1 = "Ajout DéplacementBateau effectué !";
+        String result1 = instance.ajouterDeplacementBateau(b1);
+        assertEquals("Ajout",expResult1, result1);
+        Bateau b2 = null;
+        String expResult2 = "DéplacementBateau nul !";
+        String result2 = instance.ajouterDeplacementBateau(b2);
+        Bateau b3 = new Bateau("aa12");
+        String expResult3 = "DéplacementBateau déjà Enregistré !";
+        String result3= instance.ajouterDeplacementBateau(b3); 
     }
 
     /**
@@ -57,11 +63,19 @@ public class OperatorModeleTest {
     @Test
     public void testAjouterPort() {
         System.out.println("ajouterPort");
-        Port p = null;
+        Port p1 = null;
         OperatorModele instance = new OperatorModele();
-        String expResult = instance.ajouterPort(p);
-        String result = instance.ajouterPort(p);
-        assertEquals(expResult, result);
+        String expResult1 = "Port nul !";
+        String result1 = instance.ajouterPort(p1);
+        assertEquals(expResult1, result1);
+        Port p2 = new Port("aa12");
+        String expResult2 = "Ajout port effectué !";
+        String result2 = instance.ajouterPort(p2);
+        assertEquals(expResult2, result2);
+        Port p3 = new Port("aa12");
+        String expResult3 = "Port déjà enregistré !";
+        String result3 = instance.ajouterPort(p3);
+        assertEquals(expResult3, result3);
     }
 
     /**
@@ -94,7 +108,7 @@ public class OperatorModeleTest {
     @Test
     public void testGetDeplacementBateau() {
         System.out.println("getDeplacementBateau");
-        String codeBateau = "";
+        String codeBateau = "aa12";
         OperatorModele instance = new OperatorModele();
         Bateau expResult = instance.getDeplacementBateau(codeBateau);
         Bateau result = instance.getDeplacementBateau(codeBateau);
@@ -107,7 +121,7 @@ public class OperatorModeleTest {
     @Test
     public void testGetPort() {
         System.out.println("getPort");
-        String codePort = "";
+        String codePort = "aa12";
         OperatorModele instance = new OperatorModele();
         Port expResult = instance.getPort(codePort);
         Port result = instance.getPort(codePort);
@@ -140,9 +154,9 @@ public class OperatorModeleTest {
     public void testModifierSupSingle() {
         System.out.println("modifierSupSingle");
         Bateau b = new Bateau();
-        float SupSingle = 0.0F;
+        float SupSingle = 15;
         OperatorModele instance = new OperatorModele();
-        String expResult = instance.modifierSupSingle(b, SupSingle);
+        String expResult = "changement du supplément single effectué !";
         String result = instance.modifierSupSingle(b, SupSingle);
         assertEquals(expResult, result);
     }
@@ -153,11 +167,15 @@ public class OperatorModeleTest {
     @Test
     public void testSuppDeplacementBateau() {
         System.out.println("suppDeplacementBateau");
-        Bateau b = null;
+        Bateau b = new Bateau();
         OperatorModele instance = new OperatorModele();
-        String expResult = instance.suppDeplacementBateau(b);
-        String result = instance.suppDeplacementBateau(b);
-        assertEquals(expResult, result);
+        String expResult1 = instance.suppDeplacementBateau(b);
+        String result1 = instance.suppDeplacementBateau(b);
+        assertEquals(expResult1, result1);
+        String expResult2 = "DeplacementBateau introuvable ou suppression impossible !";
+        String result2 = instance.suppDeplacementBateau(b);
+        assertEquals(expResult2,result2);
+        
     }
 
     /**
@@ -166,11 +184,14 @@ public class OperatorModeleTest {
     @Test
     public void testSuppPort() {
         System.out.println("suppPort");
-        Port p = null;
+        Port p = new Port();
         OperatorModele instance = new OperatorModele();
-        String expResult = instance.suppPort(p);
-        String result = instance.suppPort(p);
-        assertEquals(expResult, result);
+        String expResult1 = instance.suppPort(p);
+        String result1 = instance.suppPort(p);
+        assertEquals(expResult1, result1);
+        String expResult2 ="Port introuvable ou suppression impossible !";
+        String result2 =instance.suppPort(p);
+        assertEquals(expResult2,result2);
     }
     
 }
