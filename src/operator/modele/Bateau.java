@@ -74,8 +74,8 @@ public class Bateau {
     }
 
     /**
-     * retourne le supplément single
-     * @return
+     * méthode qui retourne le supplément single
+     * @return le supplément single
      */
     public float getSupSingle() {
         // TODO implement here
@@ -91,8 +91,8 @@ public class Bateau {
     }
 
     /**
-     * retourne le port de départ
-     * @return
+     * méthode qui retourne le port de départ
+     * @return le port de départ
      */
     public String getDepartPort() {
         // TODO implement here
@@ -109,8 +109,8 @@ public class Bateau {
     }
 
     /**
-     * retourne le port d'arrivée
-     * @return
+     * méthode qui retourne le port d'arrivée
+     * @return le port d'arrivée
      */
     public String getArriveePort() {
         // TODO implement here

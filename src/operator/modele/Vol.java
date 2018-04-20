@@ -44,7 +44,8 @@ public class Vol extends Deplacement {
     }
 
     /**
-     * @param value
+     * 
+     * @param code_vol 
      */
     public void setCode_vol(String code_vol) {
         // TODO implement here
@@ -60,7 +61,8 @@ public class Vol extends Deplacement {
     }
 
     /**
-     * @param value
+     * 
+     * @param départ_aéroprot 
      */
     public void setDépart_aéroport(String départ_aéroprot) {
         // TODO implement here
@@ -76,7 +78,8 @@ public class Vol extends Deplacement {
     }
 
     /**
-     * @param value
+     * 
+     * @param arrivée_aéroport 
      */
     public void setArrivée_aéroport(String arrivée_aéroport) {
         // TODO implement here

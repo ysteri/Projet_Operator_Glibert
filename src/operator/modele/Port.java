@@ -47,8 +47,8 @@ public class Port {
     }
     
     /**
-     * retourne le code du port
-     * @return
+     * méthode qui retourne le code du port
+     * @return le code du port
      */
     public String getCodePort() {
         // TODO implement here
@@ -65,8 +65,8 @@ public class Port {
     }
 
     /**
-     * retourne la ville du port
-     * @return
+     * méthode qui retourne la ville du port
+     * @return la ville du port
      */
     public String getVille() {
         // TODO implement here
@@ -83,8 +83,8 @@ public class Port {
     }
 
     /**
-     * retourne le pays du port
-     * @return
+     * méthode qui retourne le pays du port
+     * @return le pays du port
      */
     public String getPays() {
         // TODO implement here

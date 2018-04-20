@@ -44,11 +44,11 @@ public class OperatorModeleTest {
     @Test
     public void testAjouterDeplacementBateau() {
         System.out.println("ajouterDeplacementBateau");
-        Bateau b = null;
+        Bateau b = new Bateau();
         OperatorModele instance = new OperatorModele();
-        String expResult = instance.ajouterDeplacementBateau(b);
+        String expResult = "Ajout DéplacementBateau effectué !";
         String result = instance.ajouterDeplacementBateau(b);
-        assertEquals(expResult, result);
+        assertEquals("Ajout",expResult, result);
     }
 
     /**

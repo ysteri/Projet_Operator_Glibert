@@ -36,7 +36,8 @@ public class Position {
     }
 
     /**
-     * @param value
+     * 
+     * @param num 
      */
     public void setNum(int num) {
         // TODO implement here

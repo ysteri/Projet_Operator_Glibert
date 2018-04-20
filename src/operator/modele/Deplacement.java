@@ -54,7 +54,8 @@ public class Deplacement {
     }
 
     /**
-     * @param value
+     * 
+     * @param prix 
      */
     public void setPrix(float prix) {
         // TODO implement here
@@ -70,7 +71,8 @@ public class Deplacement {
     }
 
     /**
-     * @param value
+     * 
+     * @param départ_date 
      */
     public void setDépart_date(String départ_date) {
         // TODO implement here
@@ -86,7 +88,8 @@ public class Deplacement {
     }
 
     /**
-     * @param value
+     * 
+     * @param arrivée_date 
      */
     public void setArrivée_date(String arrivée_date) {
         // TODO implement here
@@ -102,7 +105,8 @@ public class Deplacement {
     }
 
     /**
-     * @param value
+     * 
+     * @param départ_heure 
      */
     public void setDépart_heure(String départ_heure) {
         // TODO implement here
@@ -119,6 +123,7 @@ public class Deplacement {
 
     /**
      * 
+     * @param arrivée_heure 
      */
     public void setArrivée_heure(String arrivée_heure) {
         // TODO implement here

@@ -47,7 +47,8 @@ public class Aeroport {
     }
 
     /**
-     * @param value
+     * 
+     * @param code_aéroport 
      */
     public void setCode_aéroport(String code_aéroport) {
         // TODO implement here
@@ -63,7 +64,8 @@ public class Aeroport {
     }
 
     /**
-     * @param value
+     * 
+     * @param nom 
      */
     public void setNom (String nom) {
         // TODO implement here
@@ -79,7 +81,8 @@ public class Aeroport {
     }
 
     /**
-     * @param value
+     * 
+     * @param ville 
      */
     public void setVille(String ville) {
         // TODO implement here
@@ -95,7 +98,8 @@ public class Aeroport {
     }
 
     /**
-     * @param value
+     * 
+     * @param pays 
      */
     public void setPays(String pays) {
         // TODO implement here
