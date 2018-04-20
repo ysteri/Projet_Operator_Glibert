@@ -23,6 +23,10 @@ public class Port {
      */
     private String pays;
     /**
+     * contient le nombre maximum de bateau
+     */
+    private int batMax;
+    /**
      * constructeur par défaut
      */
     public Port() {
@@ -54,10 +58,24 @@ public class Port {
         // TODO implement here
         return codePort;
     }
+    /**
+     * méthode qui retourne le nombre de bateaux maximum d'un port
+     * @return  le nombre maximum de bateaux d'un port
+     */
+    public int getBatMax() {
+        return batMax;
+    }
+    /**
+     * établi un nouveau nombre de bateaux maximum d'un port
+     * @param batMax le nombre maximum de beataux dans un port
+     */
+    public void setBatMax(int batMax) {
+        this.batMax = batMax;
+    }
 
     /**
      * établi un nouveau code pour le port
-     * @param codePort 
+     * @param codePort le code du port
      */
     public void setCodePort(String codePort) {
         // TODO implement here

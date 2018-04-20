@@ -115,12 +115,31 @@ public class OperatorModeleTest {
     }
 
     /**
+     * Test of modifBatMax method, of class OperatorModele.
+     */
+    @Test
+    public void modifBatMax(){
+        System.out.println("modifBatMax");
+        Port p1 = new Port();
+        int batMax1 = 50;
+        OperatorModele instance = new OperatorModele();
+        boolean expResult1 = true;
+        boolean result1 = instance.modifbatMax(p1, batMax1);
+        assertEquals(expResult1, result1);
+        Port p2 = new Port();
+        int batMax2 = 1200;
+        boolean expResult2 = false;
+        boolean result2 = instance.modifbatMax(p2, batMax2);
+        assertEquals(expResult2, result2);
+    }
+    
+    /**
      * Test of modifierSupSingle method, of class OperatorModele.
      */
     @Test
     public void testModifierSupSingle() {
         System.out.println("modifierSupSingle");
-        Bateau b = null;
+        Bateau b = new Bateau();
         float SupSingle = 0.0F;
         OperatorModele instance = new OperatorModele();
         String expResult = instance.modifierSupSingle(b, SupSingle);

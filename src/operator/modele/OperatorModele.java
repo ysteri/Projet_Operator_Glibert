@@ -109,6 +109,12 @@ public class OperatorModele {
         b.setSupSingle(supSingle);
         return "changement du supplément single effectué !";
     }
+    
+    boolean modifbatMax(Port p,int batMax){
+        if(batMax<0||batMax>1000)return false;
+        p.setBatMax(batMax);
+        return true;
+    }
     /**
      * méthode permettant de supprimer un voyage en bateau
      * @param b voyage en bateau à supprimer
