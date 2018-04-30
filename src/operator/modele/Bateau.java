@@ -23,12 +23,12 @@ public class Bateau {
     /**
      * variable qui contient le port de départ
      */
-    private String departPort;
+    private Port departPort;
 
     /**
      * variable qui contient le port d'arrivée
      */
-    private String arriveePort;
+    private Port arriveePort;
     /**
      * constructeur par défaut
      */
@@ -48,7 +48,7 @@ public class Bateau {
      * @param departPort
      * @param arriveePort 
      */
-    public Bateau(String codeBateau,float supSingle, String departPort, String arriveePort){//constructeur pour la méthode ajout
+    public Bateau(String codeBateau,float supSingle, Port departPort, Port arriveePort){//constructeur pour la méthode ajout
         this.codeBateau=codeBateau;
         this.supSingle=supSingle;
         this.departPort=departPort;
@@ -88,13 +88,14 @@ public class Bateau {
      */
     public void setSupSingle(float supSingle) {
         // TODO implement here
+        this.supSingle=supSingle;
     }
 
     /**
      * méthode qui retourne le port de départ
      * @return le port de départ
      */
-    public String getDepartPort() {
+    public Port getDepartPort() {
         // TODO implement here
         return departPort;
     }
@@ -103,7 +104,7 @@ public class Bateau {
      * établi un nouveau port de départ
      * @param departPort 
      */
-    public void setDepartPort(String departPort) {
+    public void setDepartPort(Port departPort) {
         // TODO implement here
         this.departPort=departPort;
     }
@@ -112,7 +113,7 @@ public class Bateau {
      * méthode qui retourne le port d'arrivée
      * @return le port d'arrivée
      */
-    public String getArriveePort() {
+    public Port getArriveePort() {
         // TODO implement here
         return arriveePort;
     }
@@ -121,7 +122,7 @@ public class Bateau {
      * établi un nouveau port d'arrivée
      * @param arriveePort
      */
-    public void setArriveePort(String arriveePort) {
+    public void setArriveePort(Port arriveePort) {
         // TODO implement here
         this.arriveePort=arriveePort;
     }
@@ -142,9 +143,9 @@ public class Bateau {
     public int hashCode() {
         int hash = 3;
         hash = 23 * hash + Objects.hashCode(this.codeBateau);
-        hash = 23 * hash + Objects.hashCode(this.supSingle);
-        hash = 23 * hash + Objects.hashCode(this.departPort);
-        hash = 23 * hash + Objects.hashCode(this.arriveePort);
+    //    hash = 23 * hash + Objects.hashCode(this.supSingle);
+    //    hash = 23 * hash + Objects.hashCode(this.departPort);
+    //    hash = 23 * hash + Objects.hashCode(this.arriveePort);
         return hash;
     }
     /**
