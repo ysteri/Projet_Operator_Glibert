@@ -11,27 +11,27 @@ public class Deplacement {
       /**
      * 
      */
-    private float prix;
+    protected float prix;
 
     /**
      * 
      */
-    private String départ_date;
+    protected String départ_date;
 
     /**
      * 
      */
-    private String arrivée_date;
+    protected String arrivée_date;
 
     /**
      * 
      */
-    private String départ_heure;
+    protected String départ_heure;
 
     /**
      * 
      */
-    private String arrivée_heure;
+    protected String arrivée_heure;
 
     public Deplacement() {
         //constructeur par défaut

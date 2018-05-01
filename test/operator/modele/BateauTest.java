@@ -90,8 +90,8 @@ public class BateauTest {
     public void testGetDepartPort() {
         System.out.println("getDepartPort");
         Bateau instance = new Bateau();
-        String expResult = instance.getDepartPort();
-        String result = instance.getDepartPort();
+        Port expResult = instance.getDepartPort();
+        Port result = instance.getDepartPort();
         assertEquals(expResult, result);
     }
 
@@ -101,7 +101,7 @@ public class BateauTest {
     @Test
     public void testSetDepartPort() {
         System.out.println("setDepartPort");
-        String departPort = "";
+        Port departPort = null;
         Bateau instance = new Bateau();
         instance.setDepartPort(departPort);
     }
@@ -113,8 +113,8 @@ public class BateauTest {
     public void testGetArriveePort() {
         System.out.println("getArriveePort");
         Bateau instance = new Bateau();
-        String expResult = instance.getArriveePort();
-        String result = instance.getArriveePort();
+        Port expResult = instance.getArriveePort();
+        Port result = instance.getArriveePort();
         assertEquals(expResult, result);
     }
 
@@ -124,7 +124,7 @@ public class BateauTest {
     @Test
     public void testSetArriveePort() {
         System.out.println("setArriveePort");
-        String arriveePort = "";
+        Port arriveePort = null;
         Bateau instance = new Bateau();
         instance.setArriveePort(arriveePort);
     }

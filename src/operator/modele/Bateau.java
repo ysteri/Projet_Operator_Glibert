@@ -8,27 +8,27 @@ import java.util.*;
 /**
  * @author Thomas
  */
-public class Bateau {
+public class Bateau extends Deplacement {
 
        /**
      * Variable du code alphanumérique d'un voyage en bateau
      */
-    private String codeBateau;
+    protected String codeBateau;
 
     /**
      * variable du supplément single d'un voyage en bateau
      */
-    private float supSingle;
+    protected float supSingle;
 
     /**
      * variable qui contient le port de départ
      */
-    private Port departPort;
+    protected Port departPort;
 
     /**
      * variable qui contient le port d'arrivée
      */
-    private Port arriveePort;
+    protected Port arriveePort;
     /**
      * constructeur par défaut
      */

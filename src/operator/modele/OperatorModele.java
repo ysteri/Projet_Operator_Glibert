@@ -135,4 +135,21 @@ public class OperatorModele {
         if(ok) return "Port supprimé !";
         else return "Port introuvable ou suppression impossible !";
     }
+    
+    /*public void populate(){
+       mesVoitures.addAll(Arrays.asList(
+               new Voiture("AXR345","Citroën","c3",2010,105000,3500),
+               new Voiture("BZR443","VW","Passat",2008,205000,5000),
+               new Voiture("XYZ322","Kia","Rio",2012,80000,4000))
+               );
+       mesClients.addAll(Arrays.asList(
+               new Client("Lenoir","Eric","0456778899","Mons"),
+               new Client("Levert","Aline","0478223344","BXL"),
+               new Client("Lerouge","Carine","0498662277","La Louvière"))
+       );
+       mesVoitures.get(1).vendre(mesClients.get(2));
+       
+       
+   }
+*/
 }

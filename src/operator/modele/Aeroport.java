@@ -11,7 +11,7 @@ public class Aeroport {
     /**
      * 
      */
-    private String code_aéroport;
+    private String codeAeroport;
 
     /**
      * 
@@ -31,8 +31,8 @@ public class Aeroport {
     public Aeroport() {
         //constructeur par défaut
     }
-    public Aeroport(String code_aéroport,String nom, String ville,String pays){//constructeur complet
-        this.code_aéroport=code_aéroport;
+    public Aeroport(String codeAeroport,String nom, String ville,String pays){//constructeur complet
+        this.codeAeroport=codeAeroport;
         this.nom=nom;
         this.ville=ville;
         this.pays=pays;
@@ -41,18 +41,18 @@ public class Aeroport {
     /**
      * @return
      */
-    public String getCode_aéroport() {
+    public String getCodeAeroport() {
         // TODO implement here
-        return code_aéroport;
+        return codeAeroport;
     }
 
     /**
      * 
-     * @param code_aéroport 
+     * @param codeAeroport 
      */
-    public void setCode_aéroport(String code_aéroport) {
+    public void setCodeAeroport(String codeAeroport) {
         // TODO implement here
-        this.code_aéroport=code_aéroport;
+        this.codeAeroport=codeAeroport;
     }
 
     /**
@@ -108,16 +108,16 @@ public class Aeroport {
     
      @Override
     public String toString() {
-        return "code_aéroport=" + code_aéroport + ", nom=" + nom + 
+        return "codeAeroport=" + codeAeroport + ", nom=" + nom + 
                 ", ville=" + ville + ", pays=" + pays;              
     }
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 23 * hash + Objects.hashCode(this.code_aéroport);
-        hash = 23 * hash + Objects.hashCode(this.nom);
-        hash = 23 * hash + Objects.hashCode(this.ville);
-        hash = 23 * hash + Objects.hashCode(this.pays);
+        hash = 23 * hash + Objects.hashCode(this.codeAeroport);
+        //hash = 23 * hash + Objects.hashCode(this.nom);
+        //hash = 23 * hash + Objects.hashCode(this.ville);
+        //hash = 23 * hash + Objects.hashCode(this.pays);
         return hash;
     }
 
@@ -133,7 +133,7 @@ public class Aeroport {
             return false;
         }
         final Aeroport other = (Aeroport) obj;
-        if (!Objects.equals(this.code_aéroport, other.code_aéroport)) {
+        if (!Objects.equals(this.codeAeroport, other.codeAeroport)) {
             return false;
         }
         return true;

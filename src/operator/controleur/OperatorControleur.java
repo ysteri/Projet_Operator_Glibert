@@ -35,36 +35,72 @@ public void gestion(){
         choix = ov.menu();
         switch (choix){
             case 1:
-                ajoutDeplacementBateau();
+                gestionDeplacementBateau();
                 break;
             case 2:
-                ajoutPort();
+                gestionPort();
                 break;
             case 3:
-                listeDeplacementsBateau();
-                break;
-            case 4:         
-                listePorts();
-                break;
-            case 5:
-                modifierSupSingle();
-                break;
-            case 6:
-                supprimerDeplacementBateau();
-                break;
-            case 7:
                 ov.affMsg("Aurevoir !");
                 break;
             default:
                 ov.affMsg("Choix incorrect !");
         }
-    }while(choix != 7);
+    }while(choix != 3);
+}
+
+public void gestionDeplacementBateau(){
+    int choix;
+    do{
+        choix = ov.menuDeplacementBateau();
+        switch (choix){
+            case 1:
+                ajoutDeplacementBateau();
+                break;
+            case 2:
+                listeDeplacementsBateau();
+                break;
+            case 3:
+                modifierSupSingle();
+                break;
+            case 4:
+                supprimerDeplacementBateau();
+                break;
+            case 5:
+                ov.affMsg("Retour au menu principal !");
+                ov.menu();
+                break;
+            default:
+                ov.affMsg("Choix incorrect !");
+        }
+    }while(choix != 5);
 }
 
 public void ajoutDeplacementBateau(){
     Bateau b = ov.encodeDeplacementBateau();
     String msg = om.ajouterDeplacementBateau(b);
     ov.affMsg(msg);
+}
+
+public void gestionPort(){
+    int choix;
+    do{
+        choix = ov.menuPort();
+        switch (choix){
+            case 1:
+                ajoutPort();
+                break;
+            case 2:         
+                listePorts();
+                break;
+            case 3:
+                ov.affMsg("Retour au menu principal !");
+                ov.menu();
+                break;
+            default:
+                ov.affMsg("Choix incorrect !");
+        }
+    }while(choix != 3);
 }
 
 public void ajoutPort(){
@@ -150,7 +186,6 @@ public void listePorts(){
     ov.affListe(lp);
     
 }
-
 
 
 }

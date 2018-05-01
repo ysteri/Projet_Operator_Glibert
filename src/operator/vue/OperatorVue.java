@@ -17,13 +17,49 @@ public class OperatorVue {
     
     public int menu(){
         List<String> listeOptions = new ArrayList<>(Arrays.asList(
-            "Ajouter un déplacement par bateau",
+            "Gestion des déplacements par bateau",
+            "Gestion des ports",
+            "Fin"));
+        affListe(listeOptions);
+        
+        int choix;
+        do{
+            String choixs = getMsg("Votre choix : ");
+            choix = Integer.parseInt(choixs);
+            if (choix > 0 && choix <=listeOptions.size()){
+                break;
+            }
+            affMsg("choix incorrect");
+        }while(true);
+        return choix;
+    }
+    
+    public int menuPort(){
+        List<String> listeOptions = new ArrayList<>(Arrays.asList(
             "Ajouter un port",
-            "Afficher les déplacements par bateau",
             "Afficher les ports",
+            "Retour"));
+        affListe(listeOptions);
+        
+        int choix;
+        do{
+            String choixs = getMsg("Votre choix : ");
+            choix = Integer.parseInt(choixs);
+            if (choix > 0 && choix <=listeOptions.size()){
+                break;
+            }
+            affMsg("choix incorrect");
+        }while(true);
+        return choix;
+    }
+    
+    public int menuDeplacementBateau(){
+        List<String> listeOptions = new ArrayList<>(Arrays.asList(
+            "Ajouter un déplacement par bateau",
+            "Afficher les déplacements par bateau",
             "Modifier le supplément single",
             "Supprimer un DéplacementBateau",
-            "Fin"));
+            "Retour"));
         affListe(listeOptions);
         
         int choix;

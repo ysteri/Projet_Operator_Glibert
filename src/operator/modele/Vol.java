@@ -6,97 +6,95 @@ import java.util.*;
 /**
  * @author Thomas
  */
-public class Vol extends Deplacement {
+public class Vol extends Deplacement{
 
       /**
      * 
      */
-    private String code_vol;
+    protected String codeVol;
 
     /**
      * 
      */
-    private String départ_aéroport;
+    protected Port departAeroport;
 
     /**
      * 
      */
-    private String arrivée_aéroport;
-    
-    private Aeroport myAéroport;
+    protected Port arriveeAeroport;
 
     public Vol() {
         //constructeur par défaut
     }
     
-    public Vol(String code_vol, String départ_aéroport,String arrivée_aéroport){//constructeur complet
-        this.code_vol=code_vol;
-        this.départ_aéroport=départ_aéroport;
-        this.arrivée_aéroport=arrivée_aéroport;
+    public Vol(String codeVol, Port departAeroport,Port arriveeAeroport){//constructeur complet
+        this.codeVol=codeVol;
+        this.departAeroport=departAeroport;
+        this.arriveeAeroport=arriveeAeroport;
     }
 
     /**
      * @return
      */
-    public String getCode_vol() {
+    public String getCodeVol() {
         // TODO implement here
-        return code_vol;
+        return codeVol;
     }
 
     /**
      * 
-     * @param code_vol 
+     * @param codeVol 
      */
-    public void setCode_vol(String code_vol) {
+    public void setCode_vol(String codeVol) {
         // TODO implement here
-        this.code_vol=code_vol;
+        this.codeVol=codeVol;
     }
 
     /**
      * @return
      */
-    public String getDépart_aéroport() {
+    public Port getDepartAeroport() {
         // TODO implement here
-        return départ_aéroport;
+        return departAeroport;
     }
 
     /**
      * 
-     * @param départ_aéroprot 
+     * @param departAeroport 
      */
-    public void setDépart_aéroport(String départ_aéroprot) {
+    public void setDepartAeroport(Port departAeroport) {
         // TODO implement here
-        this.départ_aéroport=départ_aéroport;
+        this.departAeroport=departAeroport;
     }
 
     /**
      * @return
      */
-    public String getArrivée_aéroport() {
+    public Port getArriveeAeroport() {
         // TODO implement here
-        return arrivée_aéroport;
+        return arriveeAeroport;
     }
 
     /**
      * 
-     * @param arrivée_aéroport 
+     * @param arriveeAeroport 
      */
-    public void setArrivée_aéroport(String arrivée_aéroport) {
+    public void setArriveeAeroport(Port arriveeAeroport) {
         // TODO implement here
-        this.arrivée_aéroport=arrivée_aéroport;
+        this.arriveeAeroport=arriveeAeroport;
     }
     
     @Override
     public String toString() {
-        return "code_vol=" + code_vol + 
-                ", départ_aéroport=" + départ_aéroport + ", arrivée_aéroport=" + arrivée_aéroport;              
+        return "code_vol=" + codeVol + 
+                ", départ_aéroport=" + departAeroport + ", arrivée_aéroport=" + arriveeAeroport;              
     }
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 23 * hash + Objects.hashCode(this.code_vol);
-        hash = 23 * hash + Objects.hashCode(this.départ_aéroport);
-        hash = 23 * hash + Objects.hashCode(this.arrivée_aéroport);
+        hash = 23 * hash + Objects.hashCode(this.codeVol);
+        //hash = 23 * hash + Objects.hashCode(this.departAeroport);
+        //hash = 23 * hash + Objects.hashCode(this.arriveeAeroport);
         return hash;
     }
 
@@ -112,7 +110,7 @@ public class Vol extends Deplacement {
             return false;
         }
         final Vol other = (Vol) obj;
-        if (!Objects.equals(this.code_vol, other.code_vol)) {
+        if (!Objects.equals(this.codeVol, other.codeVol)) {
             return false;
         }
         return true;
