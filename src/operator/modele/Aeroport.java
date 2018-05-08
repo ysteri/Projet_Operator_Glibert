@@ -28,6 +28,13 @@ public class Aeroport {
      */
     private String pays;
 
+    private Aeroport(AeroportBuilder ab){
+        this.codeAeroport=ab.codeAeroport;
+        this.nom=ab.nom;
+        this.ville=ab.ville;
+        this.pays=ab.pays;
+    }
+    
     public Aeroport() {
         //constructeur par défaut
     }
@@ -47,29 +54,11 @@ public class Aeroport {
     }
 
     /**
-     * 
-     * @param codeAeroport 
-     */
-    public void setCodeAeroport(String codeAeroport) {
-        // TODO implement here
-        this.codeAeroport=codeAeroport;
-    }
-
-    /**
      * @return
      */
     public String getNom() {
         // TODO implement here
         return nom;
-    }
-
-    /**
-     * 
-     * @param nom 
-     */
-    public void setNom (String nom) {
-        // TODO implement here
-        this.nom=nom;
     }
 
     /**
@@ -81,29 +70,11 @@ public class Aeroport {
     }
 
     /**
-     * 
-     * @param ville 
-     */
-    public void setVille(String ville) {
-        // TODO implement here
-        this.ville=ville;
-    }
-
-    /**
      * @return
      */
     public String getPays() {
         // TODO implement here
         return pays;
-    }
-
-    /**
-     * 
-     * @param pays 
-     */
-    public void setPays(String pays) {
-        // TODO implement here
-        this.pays=pays;
     }
     
      @Override
@@ -111,6 +82,43 @@ public class Aeroport {
         return "codeAeroport=" + codeAeroport + ", nom=" + nom + 
                 ", ville=" + ville + ", pays=" + pays;              
     }
+    
+    public static class AeroportBuilder{
+        private String codeAeroport;
+        private String nom;
+        private String ville;
+        private String pays;
+        
+        public AeroportBuilder(){
+        }
+        
+        public AeroportBuilder setCodeAeroport(String codeAeroport){
+            this.codeAeroport = codeAeroport;
+            return this;
+        }
+        
+        public AeroportBuilder setNom(String nom){
+            this.nom=nom;
+            return this;
+        }
+        
+        public AeroportBuilder setVille(String ville){
+            this.ville=ville;
+            return this;
+        }
+        
+        public AeroportBuilder setPays(String pays){
+            this.pays=pays;
+            return this;
+        }
+        
+        public Aeroport build() throws Exception{
+            if(codeAeroport==null)throw new Exception("informations de base manquantes");
+            if(nom.trim().equals("")) throw new Exception("informations de base manquantes");
+            return new Aeroport(this);
+        }
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;

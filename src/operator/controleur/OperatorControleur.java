@@ -58,22 +58,25 @@ public void gestionDeplacementBateau(){
                 ajoutDeplacementBateau();
                 break;
             case 2:
-                listeDeplacementsBateau();
+                affilierPort();
                 break;
             case 3:
-                modifierSupSingle();
+                listeDeplacementsBateau();
                 break;
             case 4:
-                supprimerDeplacementBateau();
+                modifierSupSingle();
                 break;
             case 5:
+                supprimerDeplacementBateau();
+                break;
+            case 6:
                 ov.affMsg("Retour au menu principal !");
                 ov.menu();
                 break;
             default:
                 ov.affMsg("Choix incorrect !");
         }
-    }while(choix != 5);
+    }while(choix != 6);
 }
 
 public void ajoutDeplacementBateau(){
@@ -132,6 +135,42 @@ public void creationPorts(){
     Port j = new Port("A10","Gant","Belgique");
     String msg10 = om.ajouterPort(j);
     ov.affMsg("Ports créés !");
+}
+
+public void affilierPort(){
+    listeDeplacementsBateau();
+    Bateau b = rechercherDeplacementBateau();
+    if(b==null){
+        ov.affMsg("DéplacementBateau introuvable !");
+        return;
+    }
+    ov.affDeplacementBateau(b);
+    
+    listePorts();
+    ov.affMsg("Port de départ :");
+    Port p = rechercherPort();
+    if(p==null){
+        ov.affMsg("Port introuvable !");
+        return;
+    }
+    ov.affPort(p);
+    
+    listePorts();
+    ov.affMsg("Port d'arrivée :");
+    Port p2 = rechercherPort();
+    if(p2==null){
+        ov.affMsg("Port introuvable !");
+        return;
+    }
+    else{
+        if(p2.equals(p)){
+            ov.affMsg("Vous ne pouvez pas choisir le même port");
+            return;
+        }
+    }
+    ov.affPort(p2);
+    String msg = om.affilierPort(b,p,p2);
+    ov.affMsg(msg);
 }
 
 public void modifierSupSingle(){

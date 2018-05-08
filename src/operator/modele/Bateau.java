@@ -45,14 +45,10 @@ public class Bateau extends Deplacement {
      * constructeur pour les ajouts
      * @param codeBateau
      * @param supSingle
-     * @param departPort
-     * @param arriveePort 
      */
-    public Bateau(String codeBateau,float supSingle, Port departPort, Port arriveePort){//constructeur pour la méthode ajout
+    public Bateau(String codeBateau,float supSingle){//constructeur pour la méthode ajout
         this.codeBateau=codeBateau;
         this.supSingle=supSingle;
-        this.departPort=departPort;
-        this.arriveePort=arriveePort;
     }
 
     /**

@@ -61,6 +61,26 @@ public class OperatorModele {
         lg.ajouter("Port "+p+" enregistré !");
         return "Ajout port effectué !";
     }
+    
+    public String ajouterAeroport(){
+        
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("informations obligatoires : ");
+        System.out.println("Code de l'aéroport : ");
+        String codeAeroport = sc.nextLine();
+        
+        System.out.println("informations facultatives :");
+        System.out.println("Nom : ");
+        String nom = sc.nextLine();
+        System.out.println("ville : ");
+        String ville = sc.nextLine();
+        System.out.println("pays : ");
+        String pays = sc.nextLine();
+        
+        return "ajout aéroport effectué !";
+        
+    }
     /**
      * méthode permettant de retrouver tous les voyages en bateau
      * @return tous les voyages en bateau
@@ -95,10 +115,17 @@ public class OperatorModele {
      */
     public Port getPort(String codePort){
         Port p = new Port(codePort);
-        int containt = mesPorts.indexOf(p.getCodePort());
+        int containt = mesPorts.indexOf(p);
         if(containt<0)return null;
         else return mesPorts.get(containt);
     }
+    
+    public String affilierPort(Bateau b, Port p, Port p2){
+        b.setDepartPort(p);
+        b.setArriveePort(p2);
+        return "Affiliation des ports effectuée !";
+    }
+    
     /**
      * méthode permettant de changer le supplément single d'un voyage en bateau
      * @param b voyage en bateau dont on désire changer le supplément single
@@ -110,11 +137,6 @@ public class OperatorModele {
         return "changement du supplément single effectué !";
     }
     
-    boolean modifbatMax(Port p,int batMax){
-        if(batMax<0||batMax>1000)return false;
-        p.setBatMax(batMax);
-        return true;
-    }
     /**
      * méthode permettant de supprimer un voyage en bateau
      * @param b voyage en bateau à supprimer
