@@ -16,18 +16,18 @@ public class Vol extends Deplacement{
     /**
      * 
      */
-    protected Port departAeroport;
+    protected Aeroport departAeroport;
 
     /**
      * 
      */
-    protected Port arriveeAeroport;
+    protected Aeroport arriveeAeroport;
 
     public Vol() {
         //constructeur par défaut
     }
     
-    public Vol(String codeVol, Port departAeroport,Port arriveeAeroport){//constructeur complet
+    public Vol(String codeVol, Aeroport departAeroport,Aeroport arriveeAeroport){//constructeur complet
         this.codeVol=codeVol;
         this.departAeroport=departAeroport;
         this.arriveeAeroport=arriveeAeroport;
@@ -53,7 +53,7 @@ public class Vol extends Deplacement{
     /**
      * @return
      */
-    public Port getDepartAeroport() {
+    public Aeroport getDepartAeroport() {
         // TODO implement here
         return departAeroport;
     }
@@ -62,7 +62,7 @@ public class Vol extends Deplacement{
      * 
      * @param departAeroport 
      */
-    public void setDepartAeroport(Port departAeroport) {
+    public void setDepartAeroport(Aeroport departAeroport) {
         // TODO implement here
         this.departAeroport=departAeroport;
     }
@@ -70,7 +70,7 @@ public class Vol extends Deplacement{
     /**
      * @return
      */
-    public Port getArriveeAeroport() {
+    public Aeroport getArriveeAeroport() {
         // TODO implement here
         return arriveeAeroport;
     }
@@ -79,7 +79,7 @@ public class Vol extends Deplacement{
      * 
      * @param arriveeAeroport 
      */
-    public void setArriveeAeroport(Port arriveeAeroport) {
+    public void setArriveeAeroport(Aeroport arriveeAeroport) {
         // TODO implement here
         this.arriveeAeroport=arriveeAeroport;
     }

@@ -22,6 +22,9 @@ public class OperatorModele {
      */
     protected List<Port> mesPorts = new ArrayList<>();
     
+    protected List<Vol> mesVols = new ArrayList<>();
+    
+    protected List<Aeroport> mesAeroports = new ArrayList<>();
     /**
      * constructeur par défaut
      */
@@ -158,20 +161,35 @@ public class OperatorModele {
         else return "Port introuvable ou suppression impossible !";
     }
     
-    /*public void populate(){
-       mesVoitures.addAll(Arrays.asList(
-               new Voiture("AXR345","Citroën","c3",2010,105000,3500),
-               new Voiture("BZR443","VW","Passat",2008,205000,5000),
-               new Voiture("XYZ322","Kia","Rio",2012,80000,4000))
+    public void populateAeroportVol(){
+       mesVols.addAll(Arrays.asList(
+               new Vol("Vol1",new Aeroport("Ae1","Air-Line","Bruxelles","Belgique"),new Aeroport("Ae2","Fresh","Paris","France")),
+               new Vol("Vol2",new Aeroport("Ae3","Race","Dublin","Allemagne"),new Aeroport("Ae4","Sublime","Amsterdam","Pays-Bas")),
+               new Vol("Vol3",new Aeroport("Ae5","Tencent","Rome","Italie"),new Aeroport("Ae6","Zerial","Barcelone","Espagne")))
                );
-       mesClients.addAll(Arrays.asList(
-               new Client("Lenoir","Eric","0456778899","Mons"),
-               new Client("Levert","Aline","0478223344","BXL"),
-               new Client("Lerouge","Carine","0498662277","La Louvière"))
+       mesAeroports.addAll(Arrays.asList(
+               new Aeroport("Ae1","Air-Line","Bruxelles","Belgique"),
+               new Aeroport("Ae2","Fresh","Paris","France"),
+               new Aeroport("Ae3","Race","Dublin","Allemagne"),
+               new Aeroport("Ae4","Sublime","Amsterdam","Pays-Bas"),
+               new Aeroport("Ae5","Tencent","Rome","Italie"),
+               new Aeroport("Ae6","Zerial","Barcelone","Espagne"))
        );
-       mesVoitures.get(1).vendre(mesClients.get(2));
-       
-       
    }
-*/
+   
+   public void populatePort(){
+        mesPorts.addAll(Arrays.asList(           
+            new Port("A1","Marseille","France"),
+            new Port("A2","Paris","France"),
+            new Port("A3","Dijon","France"),
+            new Port("A4","Maubeuge","France"),
+            new Port("A5","Bordeaux","France"),
+            new Port("A6","Bruxelles","Belgique"),
+            new Port("A7","Mons","Belgique"),
+            new Port("A8","Anvers","Belgique"),
+            new Port("A9","Charleroi","Belgique"),
+            new Port("A10","Gant","Belgique"))
+            );
+    }
+
 }

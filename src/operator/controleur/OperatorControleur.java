@@ -30,7 +30,6 @@ public OperatorControleur(OperatorModele om, OperatorVue ov){
 
 public void gestion(){
     int choix;
-    creationPorts();
     do{
         choix = ov.menu();
         switch (choix){
@@ -110,31 +109,6 @@ public void ajoutPort(){
     Port p = ov.encodePort();
     String msg = om.ajouterPort(p);
     ov.affMsg(msg);
-}
-
-public void creationPorts(){
-    ov.affMsg("Création d'une suite de ports");
-    Port a = new Port("A1","Marseille","France");
-    String msg1 = om.ajouterPort(a);
-    Port b = new Port("A2","Paris","France");
-    String msg2 = om.ajouterPort(b);
-    Port c = new Port("A3","Dijon","France");
-    String msg3 = om.ajouterPort(c);
-    Port d = new Port("A4","Maubeuge","France");
-    String msg4 = om.ajouterPort(d);
-    Port e = new Port("A5","Bordeaux","France");
-    String msg5 = om.ajouterPort(e);
-    Port f = new Port("A6","Bruxelles","Belgique");
-    String msg6 = om.ajouterPort(f);
-    Port g = new Port("A7","Mons","Belgique");
-    String msg7 = om.ajouterPort(g);
-    Port h = new Port("A8","Anvers","Belgique");
-    String msg8 = om.ajouterPort(h);
-    Port i = new Port("A9","Charleroi","Belgique");
-    String msg9 = om.ajouterPort(i);
-    Port j = new Port("A10","Gant","Belgique");
-    String msg10 = om.ajouterPort(j);
-    ov.affMsg("Ports créés !");
 }
 
 public void affilierPort(){

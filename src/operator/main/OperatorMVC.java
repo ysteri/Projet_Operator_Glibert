@@ -22,6 +22,8 @@ public class OperatorMVC {
     public OperatorMVC(int mode){
         ov = new OperatorVue();
         om = new OperatorModele();
+        om.populateAeroportVol();
+        om.populatePort();
         switch(mode){
             case 1:
                 om = new OperatorModele();
