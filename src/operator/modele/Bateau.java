@@ -128,8 +128,8 @@ public class Bateau extends Deplacement {
      */
     @Override
     public String toString() {
-        return "code_bateau=" + codeBateau + ", sup_single=" + supSingle + 
-                ", départ_port=" + departPort + ", arrivée_port=" + arriveePort;              
+        return "codeBateau=" + codeBateau + ", supSingle=" + supSingle + 
+                ", port de départ=" + departPort + ", Port d'arrivée=" + arriveePort;              
     }
     /**
      * méthode redéfinie qui donne un hashcode aux variables du constructeur

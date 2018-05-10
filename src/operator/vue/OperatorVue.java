@@ -7,6 +7,8 @@ package operator.vue;
 
 import operator.modele.Bateau;
 import operator.modele.Port;
+import operator.modele.Aeroport;
+import operator.modele.Vol;
 import java.util.*;
 /**
  *
@@ -17,7 +19,7 @@ public class OperatorVue {
     
     public int menu(){
         List<String> listeOptions = new ArrayList<>(Arrays.asList(
-            "Gestion des déplacements par bateau",
+            "Gestion des bateaux",
             "Gestion des ports",
             "Fin"));
         affListe(listeOptions);
@@ -53,13 +55,13 @@ public class OperatorVue {
         return choix;
     }
     
-    public int menuDeplacementBateau(){
+    public int menuBateau(){
         List<String> listeOptions = new ArrayList<>(Arrays.asList(
-            "Ajouter un déplacement par bateau",
+            "Ajouter un bateau",
             "Affilier un port",
-            "Afficher les déplacements par bateau",
+            "Afficher les bateaux",
             "Modifier le supplément single",
-            "Supprimer un DéplacementBateau",
+            "Supprimer un bateau",
             "Retour"));
         affListe(listeOptions);
         
@@ -75,21 +77,21 @@ public class OperatorVue {
         return choix;
     }
     
-    public String rechercherPort(){
+    public String rechPort(){
         String codePort;
         codePort = getMsg("Code du port : ");
         return codePort;
     }
             
-    public String rechercherDeplacementBateau(){
+    public String rechBateau(){
         String codeBateau;
-        codeBateau = getMsg("Code du DéplacementBateau : ");
+        codeBateau = getMsg("Code du bateau : ");
         return codeBateau;
     }
     
-    public Bateau encodeDeplacementBateau(){
+    public Bateau encodeBateau(){
         
-        String codeBateau = getMsg("Entrez le code du DéplacementBateau : ");
+        String codeBateau = getMsg("Entrez le code du bateau : ");
         String supSingles = getMsg("Entrez le supplément single : ");
         float supSingle = Float.parseFloat(supSingles);
         Bateau b = new Bateau(codeBateau, supSingle);
@@ -104,8 +106,8 @@ public class OperatorVue {
         return p;
     }
 
-    public void affDeplacementBateau(Bateau b){
-        affMsg("Code du deplacement en bateau : "+b.getCodeBateau());
+    public void affBateau(Bateau b){
+        affMsg("Code du bateau : "+b.getCodeBateau());
         affMsg("Supplément single : "+b.getSupSingle());
         affMsg("Port de départ : "+b.getDepartPort());
         affMsg("Port d'arrivée : "+b.getArriveePort());
@@ -116,6 +118,19 @@ public class OperatorVue {
         affMsg("Ville du port : "+p.getVille());
         affMsg("Pays du port : "+p.getPays());
     }
+    
+    public void affVol(Vol v){
+        affMsg("Code du vol : "+v.getCodeVol());
+        affMsg("Aéroport de départ : "+v.getDepartAeroport());
+        affMsg("Aéroport d'arrivée : "+v.getArriveeAeroport());
+    }
+    
+    /*public void affAeroport(Aeroport a){
+        affMsg("Code de l'aéroport : "+a.getCodeAeroport());
+        affMsg("Nom de l'aéroport : "+a.getNomAeroport());
+        affMsg("Ville de l'aéroport : "+a.getVilleAeroport());
+        affMsg("Pays de l'aéroport : "+a.getPaysAeroport());
+    }*/
     
     public String getMsg(){
         String msg = sc.nextLine();

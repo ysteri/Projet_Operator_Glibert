@@ -10,7 +10,7 @@ import java.util.Comparator;
  *
  * @author Thoma
  */
-public class CodeDeplacementBateauComparator implements Comparator<Bateau> {
+public class CodeBateauComparator implements Comparator<Bateau> {
     @Override
     public int compare(Bateau b1, Bateau b2){
         return b1.getCodeBateau().compareTo(b2.getCodeBateau());

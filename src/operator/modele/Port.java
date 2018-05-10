@@ -58,20 +58,6 @@ public class Port {
         // TODO implement here
         return codePort;
     }
-    /**
-     * méthode qui retourne le nombre de bateaux maximum d'un port
-     * @return  le nombre maximum de bateaux d'un port
-     */
-    public int getBatMax() {
-        return batMax;
-    }
-    /**
-     * établi un nouveau nombre de bateaux maximum d'un port
-     * @param batMax le nombre maximum de beataux dans un port
-     */
-    public void setBatMax(int batMax) {
-        this.batMax = batMax;
-    }
 
     /**
      * établi un nouveau code pour le port
@@ -133,8 +119,8 @@ public class Port {
     public int hashCode() {
         int hash = 3;
         hash = 23 * hash + Objects.hashCode(this.codePort);
-        hash = 23 * hash + Objects.hashCode(this.ville);
-        hash = 23 * hash + Objects.hashCode(this.pays);
+        //hash = 23 * hash + Objects.hashCode(this.ville);
+        //hash = 23 * hash + Objects.hashCode(this.pays);
         return hash;
     }
     /**

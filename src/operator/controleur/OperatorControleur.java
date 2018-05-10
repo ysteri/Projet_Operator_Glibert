@@ -34,7 +34,7 @@ public void gestion(){
         choix = ov.menu();
         switch (choix){
             case 1:
-                gestionDeplacementBateau();
+                gestionBateau();
                 break;
             case 2:
                 gestionPort();
@@ -48,25 +48,25 @@ public void gestion(){
     }while(choix != 3);
 }
 
-public void gestionDeplacementBateau(){
+public void gestionBateau(){
     int choix;
     do{
-        choix = ov.menuDeplacementBateau();
+        choix = ov.menuBateau();
         switch (choix){
             case 1:
-                ajoutDeplacementBateau();
+                ajoutBateau();
                 break;
             case 2:
                 affilierPort();
                 break;
             case 3:
-                listeDeplacementsBateau();
+                listeBateaux();
                 break;
             case 4:
-                modifierSupSingle();
+                modifSupSingle();
                 break;
             case 5:
-                supprimerDeplacementBateau();
+                suppBateau();
                 break;
             case 6:
                 ov.affMsg("Retour au menu principal !");
@@ -78,9 +78,9 @@ public void gestionDeplacementBateau(){
     }while(choix != 6);
 }
 
-public void ajoutDeplacementBateau(){
-    Bateau b = ov.encodeDeplacementBateau();
-    String msg = om.ajouterDeplacementBateau(b);
+public void ajoutBateau(){
+    Bateau b = ov.encodeBateau();
+    String msg = om.ajouterBateau(b);
     ov.affMsg(msg);
 }
 
@@ -112,17 +112,17 @@ public void ajoutPort(){
 }
 
 public void affilierPort(){
-    listeDeplacementsBateau();
-    Bateau b = rechercherDeplacementBateau();
+    listeBateaux();
+    Bateau b = rechBateau();
     if(b==null){
-        ov.affMsg("DéplacementBateau introuvable !");
+        ov.affMsg("Bateau introuvable !");
         return;
     }
-    ov.affDeplacementBateau(b);
+    ov.affBateau(b);
     
     listePorts();
     ov.affMsg("Port de départ :");
-    Port p = rechercherPort();
+    Port p = rechPort();
     if(p==null){
         ov.affMsg("Port introuvable !");
         return;
@@ -131,7 +131,7 @@ public void affilierPort(){
     
     listePorts();
     ov.affMsg("Port d'arrivée :");
-    Port p2 = rechercherPort();
+    Port p2 = rechPort();
     if(p2==null){
         ov.affMsg("Port introuvable !");
         return;
@@ -147,48 +147,48 @@ public void affilierPort(){
     ov.affMsg(msg);
 }
 
-public void modifierSupSingle(){
-    Bateau b = rechercherDeplacementBateau();
+public void modifSupSingle(){
+    Bateau b = rechBateau();
     if(b==null){
         ov.affMsg("DéplacementBateau introuvable !");
         return;
     }
-    ov.affDeplacementBateau(b);
+    ov.affBateau(b);
     String newSS = ov.getMsg("Nouveau supplément single : ");
     float newSupSingle = Float.parseFloat(newSS);
-    String msg = om.modifierSupSingle(b, newSupSingle);
+    String msg = om.modifSupSingle(b, newSupSingle);
     ov.affMsg(msg);
 }
 
-public void supprimerDeplacementBateau(){
-    Bateau b = rechercherDeplacementBateau();
+public void suppBateau(){
+    Bateau b = rechBateau();
     if(b==null){
         ov.affMsg("Déplacement introuvable !");
         return;
     }
-    ov.affDeplacementBateau(b);
+    ov.affBateau(b);
     String supp = ov.getMsg("êtes-vous sur de vouloir le supprimer? oui/non");
     if(supp.equals("oui")){
-        String msg = om.suppDeplacementBateau(b);
+        String msg = om.suppBateau(b);
         ov.affMsg(msg);
     }
     else ov.affMsg("Suppression annulée !");
         
 }
 
-public Bateau rechercherDeplacementBateau(){
-    String codeBateau = ov.rechercherDeplacementBateau();
-    return om.getDeplacementBateau(codeBateau);
+public Bateau rechBateau(){
+    String codeBateau = ov.rechBateau();
+    return om.getBateau(codeBateau);
 }
 
-public Port rechercherPort(){
-    String codePort = ov.rechercherPort();
+public Port rechPort(){
+    String codePort = ov.rechPort();
     return om.getPort(codePort);
 }
 
-public void listeDeplacementsBateau(){
+public void listeBateaux(){
     
-    List<Bateau> lb = om.tousDeplacementsBateau();
+    List<Bateau> lb = om.tousBateaux();
     ov.affListe(lb);
     
 }

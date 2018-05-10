@@ -16,7 +16,7 @@ public class OperatorModele {
     /**
      * liste de tous les voyages en bateau
      */
-    protected List<Bateau> mesDeplacementsBateau = new ArrayList<>();
+    protected List<Bateau> mesBateaux = new ArrayList<>();
     /**
      * liste de tous les ports
      */
@@ -35,17 +35,17 @@ public class OperatorModele {
      * @param b voyage en bateau à ajouter
      * @return diagnostic de l'ajout
      */
-    public String ajouterDeplacementBateau(Bateau b){
-        if(b==null)return "DéplacementBateau nul !";
-        if(mesDeplacementsBateau.contains(b)){
+    public String ajouterBateau(Bateau b){
+        if(b==null)return "Bateau null !";
+        if(mesBateaux.contains(b)){
             Log lg=Log.getInstance();
             lg.ajouter("Refus de l'ajout de "+b+" !");
-            return "DéplacementBateau déjà Enregistré !";
+            return "Bateau déjà Enregistré !";
         }
-        mesDeplacementsBateau.add(b);
+        mesBateaux.add(b);
         Log lg=Log.getInstance();
-        lg.ajouter("DéplacementBateau "+b+" enregistré !");
-        return "Ajout DéplacementBateau effectué !";
+        lg.ajouter("Bateau "+b+" enregistré !");
+        return "Ajout bateau effectué !";
     }
     /**
      * méthode permettant l'ajout d'un port
@@ -88,9 +88,9 @@ public class OperatorModele {
      * méthode permettant de retrouver tous les voyages en bateau
      * @return tous les voyages en bateau
      */
-    public List<Bateau> tousDeplacementsBateau(){
-        mesDeplacementsBateau.sort(new CodeDeplacementBateauComparator());
-        return mesDeplacementsBateau;
+    public List<Bateau> tousBateaux(){
+        mesBateaux.sort(new CodeBateauComparator());
+        return mesBateaux;
     }
     /**
      * méthode permettant de retrouver tous les ports
@@ -105,11 +105,11 @@ public class OperatorModele {
      * @param codeBateau object encapsulant le code 
      * @return voyage en bateau trouvé ou null si aucun ne correspond
      */
-    public Bateau getDeplacementBateau(String codeBateau){
+    public Bateau getBateau(String codeBateau){
         Bateau b = new Bateau(codeBateau);
-        int containt = mesDeplacementsBateau.indexOf(b);
+        int containt = mesBateaux.indexOf(b);
         if(containt<0)return null;
-        else return mesDeplacementsBateau.get(containt);
+        else return mesBateaux.get(containt);
     }
     /**
      * méthode permettant de trouver un port sur base de son code
@@ -135,7 +135,7 @@ public class OperatorModele {
      * @param supSingle nouveau supplément single
      * @return diagnostic de la modification
      */
-    public String modifierSupSingle(Bateau b,float supSingle){
+    public String modifSupSingle(Bateau b,float supSingle){
         b.setSupSingle(supSingle);
         return "changement du supplément single effectué !";
     }
@@ -145,10 +145,10 @@ public class OperatorModele {
      * @param b voyage en bateau à supprimer
      * @return diagnostic de la suppression
      */
-    public String suppDeplacementBateau(Bateau b){
-        boolean ok = mesDeplacementsBateau.remove(b);
-        if(ok) return "DeplacementBateau supprimé !";
-        else return "DeplacementBateau introuvable ou suppression impossible !";
+    public String suppBateau(Bateau b){
+        boolean ok = mesBateaux.remove(b);
+        if(ok) return "Bateau supprimé !";
+        else return "Bateau introuvable ou suppression impossible !";
     }
     /**
      * méthode permettant de supprimer un port

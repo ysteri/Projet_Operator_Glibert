@@ -86,8 +86,8 @@ public class Vol extends Deplacement{
     
     @Override
     public String toString() {
-        return "code_vol=" + codeVol + 
-                ", départ_aéroport=" + departAeroport + ", arrivée_aéroport=" + arriveeAeroport;              
+        return "codeVol=" + codeVol + 
+                ", Aéroport de départ=" + departAeroport + ", Aéroport d'arrivée=" + arriveeAeroport;              
     }
     @Override
     public int hashCode() {
