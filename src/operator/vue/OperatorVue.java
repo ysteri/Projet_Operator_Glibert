@@ -21,6 +21,7 @@ public class OperatorVue {
 
     public int menu() {
         List<String> listeOptions = new ArrayList<>(Arrays.asList(
+                "Gestion des voyages",
                 "Gestion des bateaux",
                 "Gestion des ports",
                 "Gestion des aéroports",
@@ -126,6 +127,27 @@ public class OperatorVue {
         } while (true);
         return choix;
     }
+    
+    public int menuVoyage() {
+        List<String> listeOptions = new ArrayList<>(Arrays.asList(
+                "Ajouter un voyage",
+                "Ajouter un déplacement",
+                "Organiser un voyage",
+                "Afficher les voyages",
+                "Retour"));
+        affListe(listeOptions);
+
+        int choix;
+        do {
+            String choixs = getMsg("Votre choix : ");
+            choix = Integer.parseInt(choixs);
+            if (choix > 0 && choix <= listeOptions.size()) {
+                break;
+            }
+            affMsg("choix incorrect");
+        } while (true);
+        return choix;
+    }
 
     public String rechPort() {
         String codePort;
@@ -155,7 +177,7 @@ public class OperatorVue {
 
         String codeBateau = getMsg("Entrez le code du bateau : ");
         String supSingles = getMsg("Entrez le supplément single : ");
-        float supSingle = Float.parseFloat(supSingles);
+        double supSingle = Double.parseDouble(supSingles);
         Bateau b = new Bateau(codeBateau, supSingle);
         return b;
     }

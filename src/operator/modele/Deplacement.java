@@ -5,12 +5,12 @@ import java.util.*;
 /**
  * @author Thomas
  */
-public class Deplacement {
+public abstract class Deplacement {
 
     /**
      *
      */
-    protected float prix;
+    protected double prix;
 
     /**
      *
@@ -48,7 +48,7 @@ public class Deplacement {
     /**
      * @return
      */
-    public float getPrix() {
+    public double getPrix() {
         // TODO implement here
         return prix;
     }
@@ -57,7 +57,7 @@ public class Deplacement {
      *
      * @param prix
      */
-    public void setPrix(float prix) {
+    public void setPrix(double prix) {
         // TODO implement here
         this.prix = prix;
     }
@@ -137,41 +137,5 @@ public class Deplacement {
                 + ", arrivée_heure=" + arrivée_heure;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 23 * hash + Objects.hashCode(this.départ_date);
-        hash = 23 * hash + Objects.hashCode(this.arrivée_date);
-        hash = 23 * hash + Objects.hashCode(this.départ_heure);
-        hash = 23 * hash + Objects.hashCode(this.arrivée_heure);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Deplacement other = (Deplacement) obj;
-        if (!Objects.equals(this.départ_date, other.départ_date)) {
-            return false;
-        }
-        if (!Objects.equals(this.arrivée_date, other.arrivée_date)) {
-            return false;
-        }
-        if (!Objects.equals(this.départ_heure, other.départ_heure)) {
-            return false;
-        }
-        if (!Objects.equals(this.arrivée_heure, other.arrivée_heure)) {
-            return false;
-        }
-        return true;
-    }
 
 }

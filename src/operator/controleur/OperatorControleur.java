@@ -37,24 +37,27 @@ public class OperatorControleur {
             choix = ov.menu();
             switch (choix) {
                 case 1:
-                    gestionBateau();
+                    gestionVoyage();
                     break;
                 case 2:
-                    gestionPort();
+                    gestionBateau();
                     break;
                 case 3:
-                    gestionVol();
+                    gestionPort();
                     break;
                 case 4:
-                    gestionAeroport();
+                    gestionVol();
                     break;
                 case 5:
+                    gestionAeroport();
+                    break;
+                case 6:
                     ov.affMsg("Aurevoir !");
                     break;
                 default:
                     ov.affMsg("Choix incorrect !");
             }
-        } while (choix != 5);
+        } while (choix != 6);
     }
 
     public void gestionBateau() {
@@ -163,6 +166,33 @@ public class OperatorControleur {
                     break;
                 case 4:
                     suppAeroport();
+                    break;
+                case 5:
+                    ov.affMsg("Retour au menu principal !");
+                    ov.menu();
+                    break;
+                default:
+                    ov.affMsg("Choix incorrect !");
+            }
+        } while (choix != 5);
+    }
+    
+    public void gestionVoyage() {
+        int choix;
+        do {
+            choix = ov.menuVoyage();
+            switch (choix) {
+                case 1:
+                    //ajoutVoyage();
+                    break;
+                case 2:
+                    //ajoutDeplacement();
+                    break;
+                case 3:
+                    //OrganiserVoyage();
+                    break;
+                case 4:
+                    //ListeVoyages();
                     break;
                 case 5:
                     ov.affMsg("Retour au menu principal !");
