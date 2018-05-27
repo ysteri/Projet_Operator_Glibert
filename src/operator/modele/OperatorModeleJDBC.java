@@ -263,5 +263,90 @@ public class OperatorModeleJDBC extends OperatorModele {
         }
         return msg;
     }
+    
+    @Override
+    public String modifSupSingle(Bateau b,double supSingle){
+        String query = "UPDATE BATEAU SET SUP_SINGLE= ? where CODE_BATEAU= ?";
+        PreparedStatement pstm = null;
+        String msg;
+        try{
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setDouble(1, supSingle);
+            pstm.setString(2, b.getCodeBateau());
+            int n = pstm.executeUpdate();
+            if(n ==1){
+                msg = "Changement de supplément single effectué";
+            }else{
+                msg = "Changement de supplément single non effectué";
+            }
+        }catch(SQLException e){
+            msg = "Erreur lors du changement d'adresse "+ e;
+        }finally{
+            try{
+                if(pstm !=null){
+                    pstm.close();
+                }
+            }catch(SQLException e){
+                msg = "Erreur de fermeture de preparedStatement "+ e;
+            }
+        }
+        return msg;
+    }
+    
+    @Override
+    public String suppBateau(Bateau b){
+        String query = "DELETE FROM BATEAU WHERE CODE_BATEAU= ?";
+        PreparedStatement pstm = null;
+        String msg;
+        try{
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, b.getCodeBateau());
+            int n = pstm.executeUpdate();
+            if(n ==1){
+                msg = "Suppression de bateau effectuée";
+            }else{
+                msg = "Suppression de bateau non effectuée";
+            }
+        }catch(SQLException e){
+            msg = "Erreur lors de la suppression "+ e;
+        }finally{
+            try{
+                if(pstm !=null){
+                    pstm.close();
+                }
+            }catch(SQLException e){
+                msg = "Erreur de fermeture de preparedStatement "+ e;
+            }
+        }
+        return msg;
+    }
+    
+    @Override
+    public String suppPort(Port p){
+        String query = "DELETE FROM PORT WHERE CODE_PORT= ?";
+        PreparedStatement pstm = null;
+        String msg;
+        try{
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, p.getCodePort());
+            int n = pstm.executeUpdate();
+            if(n ==1){
+                msg = "Suppression de port effectuée";
+            }else{
+                msg = "Suppression de port non effectuée";
+            }
+        }catch(SQLException e){
+            msg = "Erreur lors de la suppression "+ e;
+        }finally{
+            try{
+                if(pstm !=null){
+                    pstm.close();
+                }
+            }catch(SQLException e){
+                msg = "Erreur de fermeture de preparedStatement "+ e;
+            }
+        }
+        return msg;
+    }
 }
 

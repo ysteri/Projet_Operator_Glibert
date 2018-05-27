@@ -135,7 +135,7 @@ public class OperatorModele {
      * @param supSingle nouveau supplément single
      * @return diagnostic de la modification
      */
-    public String modifSupSingle(Bateau b,float supSingle){
+    public String modifSupSingle(Bateau b,double supSingle){
         b.setSupSingle(supSingle);
         return "changement du supplément single effectué !";
     }

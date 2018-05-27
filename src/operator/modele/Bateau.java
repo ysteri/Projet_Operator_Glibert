@@ -91,7 +91,7 @@ public class Bateau extends Deplacement {
      * établi un nouveau supplément single
      * @param supSingle 
      */
-    public void setSupSingle(float supSingle) {
+    public void setSupSingle(double supSingle) {
         // TODO implement here
         this.supSingle=supSingle;
     }
