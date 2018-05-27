@@ -10,6 +10,7 @@ import operator.modele.Port;
 import operator.modele.Aeroport;
 import operator.modele.Vol;
 import java.util.*;
+import operator.modele.Aeroport.AeroportBuilder;
 /**
  *
  * @author Thoma
@@ -105,6 +106,19 @@ public class OperatorVue {
         Port p = new Port(codePort, ville, pays);
         return p;
     }
+    
+    public Aeroport encodeAeroport(){
+        System.out.println("Entrez le code de l'aéroport : ");
+        String codeAeroport = sc.nextLine();
+        System.out.println("Entrez le nom : ");
+        String nom = sc.nextLine();
+        System.out.println("Entrez la ville : ");
+        String ville = sc.nextLine();
+        System.out.println("Entrez le pays : ");
+        String pays = sc.nextLine();
+        Aeroport a = new Aeroport(codeAeroport, nom, ville, pays);
+        return a;
+    }
 
     public void affBateau(Bateau b){
         affMsg("Code du bateau : "+b.getCodeBateau());
@@ -125,12 +139,12 @@ public class OperatorVue {
         affMsg("Aéroport d'arrivée : "+v.getArriveeAeroport());
     }
     
-    /*public void affAeroport(Aeroport a){
+    public void affAeroport(Aeroport a){
         affMsg("Code de l'aéroport : "+a.getCodeAeroport());
-        affMsg("Nom de l'aéroport : "+a.getNomAeroport());
-        affMsg("Ville de l'aéroport : "+a.getVilleAeroport());
-        affMsg("Pays de l'aéroport : "+a.getPaysAeroport());
-    }*/
+        affMsg("Nom de l'aéroport : "+a.getNom());
+        affMsg("Ville de l'aéroport : "+a.getVille());
+        affMsg("Pays de l'aéroport : "+a.getPays());
+    }
     
     public String getMsg(){
         String msg = sc.nextLine();

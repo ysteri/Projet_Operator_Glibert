@@ -8,6 +8,7 @@ package operator.controleur;
 import operator.modele.OperatorModele;
 import operator.vue.OperatorVue;
 import java.util.*;
+import operator.modele.Aeroport;
 import operator.modele.Bateau;
 import operator.modele.Port;
 /**
@@ -78,12 +79,6 @@ public void gestionBateau(){
     }while(choix != 6);
 }
 
-public void ajoutBateau(){
-    Bateau b = ov.encodeBateau();
-    String msg = om.ajouterBateau(b);
-    ov.affMsg(msg);
-}
-
 public void gestionPort(){
     int choix;
     do{
@@ -105,9 +100,21 @@ public void gestionPort(){
     }while(choix != 3);
 }
 
+public void ajoutBateau(){
+    Bateau b = ov.encodeBateau();
+    String msg = om.ajouterBateau(b);
+    ov.affMsg(msg);
+}
+
 public void ajoutPort(){
     Port p = ov.encodePort();
     String msg = om.ajouterPort(p);
+    ov.affMsg(msg);
+}
+
+public void ajoutAeroport(){
+    Aeroport a = ov.encodeAeroport();
+    String msg = om.ajouterAeroport(a);
     ov.affMsg(msg);
 }
 

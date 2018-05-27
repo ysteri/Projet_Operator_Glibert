@@ -7,6 +7,7 @@ package operator.modele;
 
 import java.util.*;
 import operator.main.Log;
+import operator.modele.Aeroport.AeroportBuilder;
 /**
  *
  * @author Thoma
@@ -65,24 +66,29 @@ public class OperatorModele {
         return "Ajout port effectué !";
     }
     
-    public String ajouterAeroport(){
+    public String ajouterAeroport(Aeroport a){
+        Aeroport.AeroportBuilder ab = new Aeroport.AeroportBuilder();     
+        ab.setCodeAeroport(a.getCodeAeroport()).
+                setNom(a.getNom()).
+                setVille(a.getVille()).
+                setPays(a.getPays());
         
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("informations obligatoires : ");
-        System.out.println("Code de l'aéroport : ");
-        String codeAeroport = sc.nextLine();
-        
-        System.out.println("informations facultatives :");
-        System.out.println("Nom : ");
-        String nom = sc.nextLine();
-        System.out.println("ville : ");
-        String ville = sc.nextLine();
-        System.out.println("pays : ");
-        String pays = sc.nextLine();
-        
-        return "ajout aéroport effectué !";
-        
+        try{
+            Aeroport ae = ab.build();
+            System.out.println(ae);
+            if(ae==null)return "Aéroport nul ! ";
+            if(mesAeroports.contains(ae)){
+                Log lg=Log.getInstance();
+                lg.ajouter("Refus de l'ajout de "+ae+" !");
+        }
+        mesAeroports.add(ae);
+        Log lg=Log.getInstance();
+        lg.ajouter("Aeroport"+ae+" enregistré !");
+        return "Ajout aéroport effectué !";
+        }catch(Exception e){
+            System.out.println("Erreur de création " + e);
+        }
+        return "Aéroport déjà enregistré !";
     }
     /**
      * méthode permettant de retrouver tous les voyages en bateau
