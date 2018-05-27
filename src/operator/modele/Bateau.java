@@ -18,7 +18,7 @@ public class Bateau extends Deplacement {
     /**
      * variable du supplément single d'un voyage en bateau
      */
-    protected float supSingle;
+    protected double supSingle;
 
     /**
      * variable qui contient le port de départ
@@ -46,7 +46,7 @@ public class Bateau extends Deplacement {
      * @param codeBateau
      * @param supSingle
      */
-    public Bateau(String codeBateau,float supSingle){//constructeur pour la méthode ajout
+    public Bateau(String codeBateau,double supSingle){//constructeur pour la méthode ajout
         this.codeBateau=codeBateau;
         this.supSingle=supSingle;
     }
@@ -73,7 +73,7 @@ public class Bateau extends Deplacement {
      * méthode qui retourne le supplément single
      * @return le supplément single
      */
-    public float getSupSingle() {
+    public double getSupSingle() {
         // TODO implement here
         return supSingle;
     }

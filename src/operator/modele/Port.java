@@ -22,10 +22,7 @@ public class Port {
      * variable qui contient le pays du port
      */
     private String pays;
-    /**
-     * contient le nombre maximum de bateau
-     */
-    private int batMax;
+
     /**
      * constructeur par défaut
      */

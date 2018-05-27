@@ -38,4 +38,94 @@ public class OperatorModeleJDBC extends OperatorModele {
             System.out.println("Erreur lors de la fermeture de la connexion "+ e);
         }
     }
+    
+    @Override
+    public void populateAeroportVol(){
+       //ne rien faire car données déjà présentes dans BD
+   }
+   
+   @Override
+   public void populatePort(){
+        //ne rien faire car données déjà présentes dans BD
+    }
+   
+   @Override
+   public List<Bateau> tousBateaux(){
+        String query = "select * from BATEAU ";
+        List<Bateau> lb = new ArrayList<>();
+        Statement stm = null;
+        ResultSet rs = null;
+        try{
+            stm = dbconnect.createStatement();
+            rs = stm.executeQuery(query);
+            while(rs.next()){
+                String codeBateau = rs.getString(2);
+                double supSingle = rs.getDouble(3);
+                //String depPort = rs.getString(4);
+                //String arrPort = rs.getString(5);
+                
+                Bateau b = new Bateau(codeBateau,supSingle);
+                
+                lb.add(b);
+            }
+        }catch(SQLException e){
+            System.out.println("Erreur lors de la recherche de Bateaux "+ e);
+        }finally {
+            try{
+                if(rs != null){
+                    rs.close();
+                }
+            }catch(SQLException e){
+                System.out.println("Erreur de fermeture de resultset "+ e);
+            }
+            try{
+                if(stm != null){
+                    stm.close();
+                }
+            }catch(SQLException e){
+                System.out.println("Erreur de fermeture de statement "+ e);
+            }
+        }
+        return lb;
+    }
+    
+    @Override
+    public List<Port> tousPorts(){
+        String query = "select * from PORT ";
+        List<Port> lp = new ArrayList<>();
+        Statement stm = null;
+        ResultSet rs = null;
+        try{
+            stm = dbconnect.createStatement();
+            rs = stm.executeQuery(query);
+            while(rs.next()){
+                String codePort = rs.getString(2);
+                String ville = rs.getString(3);
+                String pays = rs.getString(4);
+                
+                Port p = new Port(codePort,ville,pays);
+                
+                lp.add(p);
+            }
+        }catch(SQLException e){
+            System.out.println("Erreur lors de la recherche de Bateaux "+ e);
+        }finally {
+            try{
+                if(rs != null){
+                    rs.close();
+                }
+            }catch(SQLException e){
+                System.out.println("Erreur de fermeture de resultset "+ e);
+            }
+            try{
+                if(stm != null){
+                    stm.close();
+                }
+            }catch(SQLException e){
+                System.out.println("Erreur de fermeture de statement "+ e);
+            }
+        }
+        return lp;
+    }
+    }
 }
