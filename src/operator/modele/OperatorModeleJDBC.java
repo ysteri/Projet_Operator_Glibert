@@ -59,10 +59,10 @@ public class OperatorModeleJDBC extends OperatorModele {
             stm = dbconnect.createStatement();
             rs = stm.executeQuery(query);
             while(rs.next()){
-                String codeBateau = rs.getString(2);
-                double supSingle = rs.getDouble(3);
-                //String depPort = rs.getString(4);
-                //String arrPort = rs.getString(5);
+                String codeBateau = rs.getString(1);
+                double supSingle = rs.getDouble(2);
+                //String depPort = rs.getString(3);
+                //String arrPort = rs.getString(4);
                 
                 Bateau b = new Bateau(codeBateau,supSingle);
                 
@@ -99,16 +99,16 @@ public class OperatorModeleJDBC extends OperatorModele {
             stm = dbconnect.createStatement();
             rs = stm.executeQuery(query);
             while(rs.next()){
-                String codePort = rs.getString(2);
-                String ville = rs.getString(3);
-                String pays = rs.getString(4);
+                String codePort = rs.getString(1);
+                String ville = rs.getString(2);
+                String pays = rs.getString(3);
                 
                 Port p = new Port(codePort,ville,pays);
                 
                 lp.add(p);
             }
         }catch(SQLException e){
-            System.out.println("Erreur lors de la recherche de Bateaux "+ e);
+            System.out.println("Erreur lors de la recherche de Ports "+ e);
         }finally {
             try{
                 if(rs != null){
@@ -183,7 +183,7 @@ public class OperatorModeleJDBC extends OperatorModele {
                 p = new Port(codeP, ville, pays);
             }
         }catch(SQLException e){
-            System.out.println("Erreur lors de la recherche de Bateau "+ e);
+            System.out.println("Erreur lors de la recherche de Port "+ e);
         }finally {
             try{
                 if(rs != null){
@@ -203,5 +203,65 @@ public class OperatorModeleJDBC extends OperatorModele {
         return p;
     }
     
+    @Override
+    public String ajouterBateau(Bateau b){
+        String msg;
+        String query = "insert into BATEAU(CODE_BATEAU,SUP_SINGLE,CODE_PORT_DEP,CODE_PORT_ARR) values(?,?,?,?)";
+        PreparedStatement pstm = null;
+        try{
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, b.getCodeBateau());
+            pstm.setDouble(2, b.getSupSingle());
+            pstm.setString(3, b.getDepPort());
+            pstm.setString(4, b.getArrPort());
+            int n = pstm.executeUpdate();
+            if(n ==1){
+                msg = "ajout bateau effectué";
+            }else{
+                msg="ajout bateau non effectué";
+            }
+        }catch(SQLException e){
+            msg = "Erreur lors de l'ajout d'un bateau "+ e;
+        }finally{
+            try{
+                if(pstm != null){
+                    pstm.close();
+                }
+            }catch(SQLException e){
+                System.out.println("Erreur de fermeture de preparedStatement "+ e);
+            }
+        }
+        return msg;
+    }
+    
+    @Override
+    public String ajouterPort(Port p){
+        String msg;
+        String query = "insert into PORT(CODE_PORT,VILLE,PAYS) values(?,?,?)";
+        PreparedStatement pstm = null;
+        try{
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, p.getCodePort());
+            pstm.setString(2, p.getVille());
+            pstm.setString(3, p.getPays());
+            int n = pstm.executeUpdate();
+            if(n ==1){
+                msg = "ajout port effectué";
+            }else{
+                msg="ajout port non effectué";
+            }
+        }catch(SQLException e){
+            msg = "Erreur lors de l'ajout d'un port "+ e;
+        }finally{
+            try{
+                if(pstm != null){
+                    pstm.close();
+                }
+            }catch(SQLException e){
+                System.out.println("Erreur de fermeture de preparedStatement "+ e);
+            }
+        }
+        return msg;
+    }
 }
 

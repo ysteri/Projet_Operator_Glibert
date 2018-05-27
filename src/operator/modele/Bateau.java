@@ -29,6 +29,15 @@ public class Bateau extends Deplacement {
      * variable qui contient le port d'arrivée
      */
     protected Port arriveePort;
+     /**
+     * variable qui contient le port de départ
+     */
+    protected String depPort;
+
+    /**
+     * variable qui contient le port d'arrivée
+     */
+    protected String arrPort;
     /**
      * constructeur par défaut
      */
@@ -122,6 +131,42 @@ public class Bateau extends Deplacement {
         // TODO implement here
         this.arriveePort=arriveePort;
     }
+    /**
+     * méthode qui retourne le port de départ
+     * @return le port de départ
+     */
+    public String getDepPort() {
+        // TODO implement here
+        return depPort;
+    }
+
+    /**
+     * établi un nouveau code alphanumérique
+     * @param depPort 
+     */
+    public void setDepPort(String depPort) {
+        // TODO implement here
+        this.depPort=depPort;
+    }
+    /**
+     * méthode qui retourne le port d'arrivée
+     * @return le port d'arrivée
+     */
+    public String getArrPort() {
+        // TODO implement here
+        return arrPort;
+    }
+
+    /**
+     * établi un nouveau code alphanumérique
+     * @param arrPort 
+     */
+    public void setArrPort(String arrPort) {
+        // TODO implement here
+        this.arrPort=arrPort;
+    }
+    
+    
     /**
      * méthode redéfinie qui Affiche les variables du constructeur
      * @return
