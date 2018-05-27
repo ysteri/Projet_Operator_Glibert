@@ -10,163 +10,165 @@ import operator.modele.Port;
 import operator.modele.Aeroport;
 import operator.modele.Vol;
 import java.util.*;
+
 /**
  *
  * @author Thoma
  */
 public class OperatorVue {
+
     private Scanner sc = new Scanner(System.in);
-    
-    public int menu(){
+
+    public int menu() {
         List<String> listeOptions = new ArrayList<>(Arrays.asList(
-            "Gestion des bateaux",
-            "Gestion des ports",
-            "Gestion des aéroports",
-            "Gestion des vols",
-            "Fin"));
+                "Gestion des bateaux",
+                "Gestion des ports",
+                "Gestion des aéroports",
+                "Gestion des vols",
+                "Fin"));
         affListe(listeOptions);
-        
+
         int choix;
-        do{
+        do {
             String choixs = getMsg("Votre choix : ");
             choix = Integer.parseInt(choixs);
-            if (choix > 0 && choix <=listeOptions.size()){
+            if (choix > 0 && choix <= listeOptions.size()) {
                 break;
             }
             affMsg("choix incorrect");
-        }while(true);
+        } while (true);
         return choix;
     }
-    
-    public int menuPort(){
+
+    public int menuPort() {
         List<String> listeOptions = new ArrayList<>(Arrays.asList(
-            "Ajouter un port",
-            "Afficher les ports",
-            "Rechercher un port",
-            "Supprimer un port",
-            "Retour"));
+                "Ajouter un port",
+                "Afficher les ports",
+                "Rechercher un port",
+                "Supprimer un port",
+                "Retour"));
         affListe(listeOptions);
-        
+
         int choix;
-        do{
+        do {
             String choixs = getMsg("Votre choix : ");
             choix = Integer.parseInt(choixs);
-            if (choix > 0 && choix <=listeOptions.size()){
+            if (choix > 0 && choix <= listeOptions.size()) {
                 break;
             }
             affMsg("choix incorrect");
-        }while(true);
+        } while (true);
         return choix;
     }
-    
-    public int menuBateau(){
+
+    public int menuBateau() {
         List<String> listeOptions = new ArrayList<>(Arrays.asList(
-            "Ajouter un bateau",
-            "Affilier un port",
-            "Afficher les bateaux",
-            "Rechercher un port",
-            "Modifier le supplément single",
-            "Supprimer un bateau",
-            "Retour"));
+                "Ajouter un bateau",
+                "Affilier un port",
+                "Afficher les bateaux",
+                "Rechercher un port",
+                "Modifier le supplément single",
+                "Supprimer un bateau",
+                "Retour"));
         affListe(listeOptions);
-        
+
         int choix;
-        do{
+        do {
             String choixs = getMsg("Votre choix : ");
             choix = Integer.parseInt(choixs);
-            if (choix > 0 && choix <=listeOptions.size()){
+            if (choix > 0 && choix <= listeOptions.size()) {
                 break;
             }
             affMsg("choix incorrect");
-        }while(true);
+        } while (true);
         return choix;
     }
-    
-    public int menuVol(){
+
+    public int menuVol() {
         List<String> listeOptions = new ArrayList<>(Arrays.asList(
-            "Ajouter un vol",
-            "Affilier un aéroport",
-            "Afficher les vols",
-            "Rechercher un vol",
-            "Supprimer un vol",
-            "Retour"));
+                "Ajouter un vol",
+                "Affilier un aéroport",
+                "Afficher les vols",
+                "Rechercher un vol",
+                "Supprimer un vol",
+                "Retour"));
         affListe(listeOptions);
-        
+
         int choix;
-        do{
+        do {
             String choixs = getMsg("Votre choix : ");
             choix = Integer.parseInt(choixs);
-            if (choix > 0 && choix <=listeOptions.size()){
+            if (choix > 0 && choix <= listeOptions.size()) {
                 break;
             }
             affMsg("choix incorrect");
-        }while(true);
+        } while (true);
         return choix;
     }
-    
-    public int menuAeroport(){
+
+    public int menuAeroport() {
         List<String> listeOptions = new ArrayList<>(Arrays.asList(
-            "Ajouter un aéroport",
-            "Afficher les aéroports",
-            "Rechercher un aéroport",
-            "Supprimer un aéroport",
-            "Retour"));
+                "Ajouter un aéroport",
+                "Afficher les aéroports",
+                "Rechercher un aéroport",
+                "Supprimer un aéroport",
+                "Retour"));
         affListe(listeOptions);
-        
+
         int choix;
-        do{
+        do {
             String choixs = getMsg("Votre choix : ");
             choix = Integer.parseInt(choixs);
-            if (choix > 0 && choix <=listeOptions.size()){
+            if (choix > 0 && choix <= listeOptions.size()) {
                 break;
             }
             affMsg("choix incorrect");
-        }while(true);
+        } while (true);
         return choix;
     }
-    
-    public String rechPort(){
+
+    public String rechPort() {
         String codePort;
         codePort = getMsg("Code du port : ");
         return codePort;
     }
-            
-    public String rechBateau(){
+
+    public String rechBateau() {
         String codeBateau;
         codeBateau = getMsg("Code du bateau : ");
         return codeBateau;
     }
-    
-    public String rechAeroport(){
+
+    public String rechAeroport() {
         String codeAeroport;
         codeAeroport = getMsg("Code de l'aéroport : ");
         return codeAeroport;
     }
-            
-    public String rechVol(){
+
+    public String rechVol() {
         String codeVol;
         codeVol = getMsg("Code du vol : ");
         return codeVol;
     }
-    
-    public Bateau encodeBateau(){
-        
+
+    public Bateau encodeBateau() {
+
         String codeBateau = getMsg("Entrez le code du bateau : ");
         String supSingles = getMsg("Entrez le supplément single : ");
         float supSingle = Float.parseFloat(supSingles);
         Bateau b = new Bateau(codeBateau, supSingle);
         return b;
     }
-    
-    public Port encodePort(){
+
+    public Port encodePort() {
         String codePort = getMsg("Entrez le code du port : ");
         String ville = getMsg("Entrez la ville : ");
         String pays = getMsg("Entrez le pays : ");
         Port p = new Port(codePort, ville, pays);
         return p;
     }
-    
-    public Aeroport encodeAeroport(){
+
+    public Aeroport encodeAeroport() {
         System.out.println("Entrez le code de l'aéroport : ");
         String codeAeroport = sc.nextLine();
         System.out.println("Entrez le nom : ");
@@ -178,57 +180,57 @@ public class OperatorVue {
         Aeroport a = new Aeroport(codeAeroport, nom, ville, pays);
         return a;
     }
-    
-    public Vol encodeVol(){
+
+    public Vol encodeVol() {
         String codeVol = getMsg("Entrez le code du vol : ");
         Vol v = new Vol(codeVol);
         return v;
     }
 
-    public void affBateau(Bateau b){
-        affMsg("Code du bateau : "+b.getCodeBateau());
-        affMsg("Supplément single : "+b.getSupSingle());
-        affMsg("Port de départ : "+b.getDepartPort());
-        affMsg("Port d'arrivée : "+b.getArriveePort());
+    public void affBateau(Bateau b) {
+        affMsg("Code du bateau : " + b.getCodeBateau());
+        affMsg("Supplément single : " + b.getSupSingle());
+        affMsg("Port de départ : " + b.getDepartPort());
+        affMsg("Port d'arrivée : " + b.getArriveePort());
     }
-    
-    public void affPort(Port p){
-        affMsg("code du port : "+p.getCodePort());
-        affMsg("Ville du port : "+p.getVille());
-        affMsg("Pays du port : "+p.getPays());
+
+    public void affPort(Port p) {
+        affMsg("code du port : " + p.getCodePort());
+        affMsg("Ville du port : " + p.getVille());
+        affMsg("Pays du port : " + p.getPays());
     }
-    
-    public void affVol(Vol v){
-        affMsg("Code du vol : "+v.getCodeVol());
-        affMsg("Aéroport de départ : "+v.getDepartAeroport());
-        affMsg("Aéroport d'arrivée : "+v.getArriveeAeroport());
+
+    public void affVol(Vol v) {
+        affMsg("Code du vol : " + v.getCodeVol());
+        affMsg("Aéroport de départ : " + v.getDepartAeroport());
+        affMsg("Aéroport d'arrivée : " + v.getArriveeAeroport());
     }
-    
-    public void affAeroport(Aeroport a){
-        affMsg("Code de l'aéroport : "+a.getCodeAeroport());
-        affMsg("Nom de l'aéroport : "+a.getNom());
-        affMsg("Ville de l'aéroport : "+a.getVille());
-        affMsg("Pays de l'aéroport : "+a.getPays());
+
+    public void affAeroport(Aeroport a) {
+        affMsg("Code de l'aéroport : " + a.getCodeAeroport());
+        affMsg("Nom de l'aéroport : " + a.getNom());
+        affMsg("Ville de l'aéroport : " + a.getVille());
+        affMsg("Pays de l'aéroport : " + a.getPays());
     }
-    
-    public String getMsg(){
+
+    public String getMsg() {
         String msg = sc.nextLine();
         return msg;
     }
 
-    public void affMsg(Object msg){
+    public void affMsg(Object msg) {
         System.out.println(msg);
     }
-    
-    public String getMsg(String msg){//surcharge de la méthode getMsg
-            affMsg(msg);
-            return getMsg();
+
+    public String getMsg(String msg) {//surcharge de la méthode getMsg
+        affMsg(msg);
+        return getMsg();
     }
-    
-    public void affListe(Collection liste){
-        int i=1;
-        for(Object o : liste){
-            affMsg((i++)+"." + o);
+
+    public void affListe(Collection liste) {
+        int i = 1;
+        for (Object o : liste) {
+            affMsg((i++) + "." + o);
         }
     }
 

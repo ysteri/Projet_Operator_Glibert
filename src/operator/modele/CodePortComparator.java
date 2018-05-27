@@ -6,14 +6,16 @@
 package operator.modele;
 
 import java.util.Comparator;
+
 /**
  *
  * @author Thoma
  */
 public class CodePortComparator implements Comparator<Port> {
+
     @Override
-    public int compare(Port p1, Port p2){
+    public int compare(Port p1, Port p2) {
         return p1.getCodePort().compareTo(p2.getCodePort());
     }
-    
+
 }

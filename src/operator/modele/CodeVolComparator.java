@@ -12,9 +12,10 @@ import java.util.Comparator;
  * @author Thoma
  */
 public class CodeVolComparator implements Comparator<Vol> {
+
     @Override
-    public int compare(Vol v1, Vol v2){
+    public int compare(Vol v1, Vol v2) {
         return v1.getCodeVol().compareTo(v2.getCodeVol());
     }
-    
+
 }

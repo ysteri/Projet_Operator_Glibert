@@ -9,7 +9,6 @@ package operator.main;
  *
  * @author Thoma
  */
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;

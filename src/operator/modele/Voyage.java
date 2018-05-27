@@ -1,6 +1,5 @@
 package operator.modele;
 
-
 import java.util.*;
 
 /**
@@ -8,18 +7,17 @@ import java.util.*;
  */
 public class Voyage {
 
-     /**
-     * 
+    /**
+     *
      */
     private int code_voyage;
 
     /**
-     * 
+     *
      */
     private String type;
-    
-    //private Position myPosition;
 
+    //private Position myPosition;
     public Voyage() {
         //constructeur par défaut
     }
@@ -37,7 +35,7 @@ public class Voyage {
      */
     public void setCode_voyage(int code_voyage) {
         // TODO implement here
-        this.code_voyage=code_voyage;
+        this.code_voyage = code_voyage;
     }
 
     /**
@@ -53,13 +51,14 @@ public class Voyage {
      */
     public void setType(String type) {
         // TODO implement here
-        this.type=type;
+        this.type = type;
     }
-    
+
     @Override
     public String toString() {
-        return "code_voyage=" + code_voyage + ", type=" + type;              
+        return "code_voyage=" + code_voyage + ", type=" + type;
     }
+
     @Override
     public int hashCode() {
         int hash = 3;

@@ -1,6 +1,5 @@
 package operator.modele;
 
-
 import java.util.*;
 
 /**
@@ -9,46 +8,47 @@ import java.util.*;
 public class Aeroport {
 
     /**
-     * 
+     *
      */
     private String codeAeroport;
 
     /**
-     * 
+     *
      */
     private String nom;
 
     /**
-     * 
+     *
      */
     private String ville;
 
     /**
-     * 
+     *
      */
     private String pays;
 
-    private Aeroport(AeroportBuilder ab){
-        this.codeAeroport=ab.codeAeroport;
-        this.nom=ab.nom;
-        this.ville=ab.ville;
-        this.pays=ab.pays;
+    private Aeroport(AeroportBuilder ab) {
+        this.codeAeroport = ab.codeAeroport;
+        this.nom = ab.nom;
+        this.ville = ab.ville;
+        this.pays = ab.pays;
     }
-    
+
     public Aeroport() {
         //constructeur par défaut
     }
-    public Aeroport(String codeAeroport,String nom, String ville,String pays){//constructeur complet
-        this.codeAeroport=codeAeroport;
-        this.nom=nom;
-        this.ville=ville;
-        this.pays=pays;
+
+    public Aeroport(String codeAeroport, String nom, String ville, String pays) {//constructeur complet
+        this.codeAeroport = codeAeroport;
+        this.nom = nom;
+        this.ville = ville;
+        this.pays = pays;
     }
-    
-    public Aeroport(String codeAeroport){//constructeur rech
-        this.codeAeroport=codeAeroport;
+
+    public Aeroport(String codeAeroport) {//constructeur rech
+        this.codeAeroport = codeAeroport;
     }
- 
+
     /**
      * @return
      */
@@ -80,49 +80,54 @@ public class Aeroport {
         // TODO implement here
         return pays;
     }
-    
-     @Override
+
+    @Override
     public String toString() {
-        return "codeAeroport=" + codeAeroport + ", nom=" + nom + 
-                ", ville=" + ville + ", pays=" + pays;              
+        return "codeAeroport=" + codeAeroport + ", nom=" + nom
+                + ", ville=" + ville + ", pays=" + pays;
     }
-    
-    public static class AeroportBuilder{
+
+    public static class AeroportBuilder {
+
         private String codeAeroport;
         private String nom;
         private String ville;
         private String pays;
-        
-        public AeroportBuilder(){
+
+        public AeroportBuilder() {
         }
-        
-        public AeroportBuilder setCodeAeroport(String codeAeroport){
+
+        public AeroportBuilder setCodeAeroport(String codeAeroport) {
             this.codeAeroport = codeAeroport;
             return this;
         }
-        
-        public AeroportBuilder setNom(String nom){
-            this.nom=nom;
+
+        public AeroportBuilder setNom(String nom) {
+            this.nom = nom;
             return this;
         }
-        
-        public AeroportBuilder setVille(String ville){
-            this.ville=ville;
+
+        public AeroportBuilder setVille(String ville) {
+            this.ville = ville;
             return this;
         }
-        
-        public AeroportBuilder setPays(String pays){
-            this.pays=pays;
+
+        public AeroportBuilder setPays(String pays) {
+            this.pays = pays;
             return this;
         }
-        
-        public Aeroport build() throws Exception{
-            if(codeAeroport==null)throw new Exception("informations de base manquantes");
-            if(nom.trim().equals("")) throw new Exception("informations de base manquantes");
+
+        public Aeroport build() throws Exception {
+            if (codeAeroport == null) {
+                throw new Exception("informations de base manquantes");
+            }
+            if (nom.trim().equals("")) {
+                throw new Exception("informations de base manquantes");
+            }
             return new Aeroport(this);
         }
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 3;

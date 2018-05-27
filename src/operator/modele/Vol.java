@@ -1,40 +1,43 @@
 package operator.modele;
 
-
 import java.util.*;
 
 /**
  * @author Thomas
  */
-public class Vol extends Deplacement{
+public class Vol extends Deplacement {
 
-      /**
-     * 
+    /**
+     *
      */
     protected String codeVol;
 
     /**
-     * 
+     *
      */
     protected Aeroport departAeroport;
 
     /**
-     * 
+     *
      */
     protected Aeroport arriveeAeroport;
+    
+    protected String depAeroport;
+    
+    protected String arrAeroport;
 
     public Vol() {
         //constructeur par défaut
     }
-    
-    public Vol(String codeVol){//constructeur ajout/rech
-        this.codeVol=codeVol;
+
+    public Vol(String codeVol) {//constructeur ajout/rech
+        this.codeVol = codeVol;
     }
-    
-    public Vol(String codeVol, Aeroport departAeroport, Aeroport arriveeAeroport){
-        this.codeVol=codeVol;
-        this.departAeroport=departAeroport;
-        this.arriveeAeroport=arriveeAeroport;
+
+    public Vol(String codeVol, Aeroport departAeroport, Aeroport arriveeAeroport) {
+        this.codeVol = codeVol;
+        this.departAeroport = departAeroport;
+        this.arriveeAeroport = arriveeAeroport;
     }
 
     /**
@@ -46,12 +49,12 @@ public class Vol extends Deplacement{
     }
 
     /**
-     * 
-     * @param codeVol 
+     *
+     * @param codeVol
      */
     public void setCode_vol(String codeVol) {
         // TODO implement here
-        this.codeVol=codeVol;
+        this.codeVol = codeVol;
     }
 
     /**
@@ -63,12 +66,12 @@ public class Vol extends Deplacement{
     }
 
     /**
-     * 
-     * @param departAeroport 
+     *
+     * @param departAeroport
      */
     public void setDepartAeroport(Aeroport departAeroport) {
         // TODO implement here
-        this.departAeroport=departAeroport;
+        this.departAeroport = departAeroport;
     }
 
     /**
@@ -80,19 +83,54 @@ public class Vol extends Deplacement{
     }
 
     /**
-     * 
-     * @param arriveeAeroport 
+     *
+     * @param arriveeAeroport
      */
     public void setArriveeAeroport(Aeroport arriveeAeroport) {
         // TODO implement here
-        this.arriveeAeroport=arriveeAeroport;
+        this.arriveeAeroport = arriveeAeroport;
     }
     
+    /**
+     * @return
+     */
+    public String getDepAeroport() {
+        // TODO implement here
+        return depAeroport;
+    }
+
+    /**
+     *
+     * @param depAeroport
+     */
+    public void setDepAeroport(String depAeroport) {
+        // TODO implement here
+        this.depAeroport = depAeroport;
+    }
+    
+    /**
+     * @return
+     */
+    public String getArrAeroport() {
+        // TODO implement here
+        return arrAeroport;
+    }
+
+    /**
+     *
+     * @param arrAeroport
+     */
+    public void setArrAeroport(String arrAeroport) {
+        // TODO implement here
+        this.arrAeroport = arrAeroport;
+    }
+
     @Override
     public String toString() {
-        return "codeVol=" + codeVol + 
-                ", Aéroport de départ=" + departAeroport + ", Aéroport d'arrivée=" + arriveeAeroport;              
+        return "codeVol=" + codeVol
+                + ", Aéroport de départ=" + departAeroport + ", Aéroport d'arrivée=" + arriveeAeroport;
     }
+
     @Override
     public int hashCode() {
         int hash = 3;

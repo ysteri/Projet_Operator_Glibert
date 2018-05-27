@@ -1,6 +1,5 @@
 package operator.modele;
 
-
 import operator.modele.Voyage;
 import java.util.*;
 
@@ -10,21 +9,20 @@ import java.util.*;
 public class Position {
 
     /**
-     * 
+     *
      */
     private int num;
 
     /**
-     * 
+     *
      */
     //private Deplacement myDéplacement[];
-
     public Position() {
         //constructeur par défaut
     }
-    
-    public Position(int num){//constructeur complet
-        this.num=num;
+
+    public Position(int num) {//constructeur complet
+        this.num = num;
     }
 
     /**
@@ -36,18 +34,19 @@ public class Position {
     }
 
     /**
-     * 
-     * @param num 
+     *
+     * @param num
      */
     public void setNum(int num) {
         // TODO implement here
-        this.num=num;
+        this.num = num;
     }
-    
+
     @Override
     public String toString() {
-        return "num=" + num;              
+        return "num=" + num;
     }
+
     @Override
     public int hashCode() {
         int hash = 3;

@@ -6,14 +6,16 @@
 package operator.modele;
 
 import java.util.Comparator;
+
 /**
  *
  * @author Thoma
  */
 public class CodeBateauComparator implements Comparator<Bateau> {
+
     @Override
-    public int compare(Bateau b1, Bateau b2){
+    public int compare(Bateau b1, Bateau b2) {
         return b1.getCodeBateau().compareTo(b2.getCodeBateau());
     }
-    
+
 }

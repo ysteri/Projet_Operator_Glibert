@@ -9,23 +9,23 @@ package myconnections;
  *
  * @author Thoma
  */
-
 import java.sql.*;
 import java.util.*;
 
 public class DBConnection {
 
-     private static Connection dbConnect = null;
+    private static Connection dbConnect = null;
 
-  private DBConnection(){}   
-     
-     
-     
-     public static Connection getConnection() {
-        if (dbConnect!=null)return dbConnect;
-        PropertyResourceBundle properties = 
-                (PropertyResourceBundle) PropertyResourceBundle.getBundle("ressources.application");
-            //nom du fichier properties à utiliser
+    private DBConnection() {
+    }
+
+    public static Connection getConnection() {
+        if (dbConnect != null) {
+            return dbConnect;
+        }
+        PropertyResourceBundle properties
+                = (PropertyResourceBundle) PropertyResourceBundle.getBundle("ressources.application");
+        //nom du fichier properties à utiliser
         String serverName = properties.getString("cours.DB.server");
         String dbName = properties.getString("cours.DB.database");
         String username = properties.getString("cours.DB.login");
@@ -43,19 +43,18 @@ public class DBConnection {
             return null;
         }
     }
-    
-    public static void closeConnection(){
-       
-        try{
-            
+
+    public static void closeConnection() {
+
+        try {
+
             dbConnect.close();
-           
+
+        } catch (Exception e) {
+            System.out.println("erreur de fermeture de connexion " + e);
+
         }
-        catch(Exception e){
-            System.out.println("erreur de fermeture de connexion "+e);
-                    
-        }
-         dbConnect=null;
-     }
+        dbConnect = null;
+    }
 
 }

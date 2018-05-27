@@ -1,13 +1,12 @@
 package operator.modele;
 
-
 import java.util.*;
 
 /**
  * @author Thomas
  */
 public class Port {
-    
+
     /**
      * variable du code alphanumérique d'un port
      */
@@ -28,27 +27,32 @@ public class Port {
      */
     public Port() {
     }
+
     /**
      * constructeur de recherche
-     * @param codePort 
+     *
+     * @param codePort
      */
-    public Port(String codePort){
-        this.codePort=codePort;
+    public Port(String codePort) {
+        this.codePort = codePort;
     }
+
     /**
      * constructeur d'ajout
+     *
      * @param codePort
      * @param ville
-     * @param pays 
+     * @param pays
      */
-    public Port(String codePort, String ville, String pays){//constructeur complet
-        this.codePort=codePort;
-        this.ville=ville;
-        this.pays=pays;
+    public Port(String codePort, String ville, String pays) {//constructeur complet
+        this.codePort = codePort;
+        this.ville = ville;
+        this.pays = pays;
     }
-    
+
     /**
      * méthode qui retourne le code du port
+     *
      * @return le code du port
      */
     public String getCodePort() {
@@ -58,15 +62,17 @@ public class Port {
 
     /**
      * établi un nouveau code pour le port
+     *
      * @param codePort le code du port
      */
     public void setCodePort(String codePort) {
         // TODO implement here
-        this.codePort=codePort;
+        this.codePort = codePort;
     }
 
     /**
      * méthode qui retourne la ville du port
+     *
      * @return la ville du port
      */
     public String getVille() {
@@ -76,15 +82,17 @@ public class Port {
 
     /**
      * établi une nouvelle ville pour le port
-     * @param ville 
+     *
+     * @param ville
      */
     public void setVille(String ville) {
         // TODO implement here
-        this.ville=ville;
+        this.ville = ville;
     }
 
     /**
      * méthode qui retourne le pays du port
+     *
      * @return le pays du port
      */
     public String getPays() {
@@ -94,23 +102,28 @@ public class Port {
 
     /**
      * établi un nouveau pays pour le port
-     * @param pays 
+     *
+     * @param pays
      */
     public void setPays(String pays) {
         // TODO implement here
-        this.pays=pays;
+        this.pays = pays;
     }
+
     /**
      * méthode redéfinie qui affiche les variables du constructeur
-     * @return 
+     *
+     * @return
      */
     @Override
     public String toString() {
-        return "code_port=" + codePort + ", ville=" + ville + ", pays=" + pays;              
+        return "code_port=" + codePort + ", ville=" + ville + ", pays=" + pays;
     }
+
     /**
      * méthode redéfinie qui associe un hashcode aux variables du constructeur
-     * @return 
+     *
+     * @return
      */
     @Override
     public int hashCode() {
@@ -120,10 +133,12 @@ public class Port {
         //hash = 23 * hash + Objects.hashCode(this.pays);
         return hash;
     }
+
     /**
      * méthode redéfinie qui compare des objets d'une classe
+     *
      * @param obj
-     * @return 
+     * @return
      */
     @Override
     public boolean equals(Object obj) {
