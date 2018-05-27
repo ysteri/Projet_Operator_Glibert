@@ -127,5 +127,81 @@ public class OperatorModeleJDBC extends OperatorModele {
         }
         return lp;
     }
+    
+    @Override
+    public Bateau getBateau(String codeBateau){
+        String query = "select * from BATEAU where CODE_BATEAU= ?";
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        Bateau b = null;
+        try{
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, codeBateau);
+            rs=pstm.executeQuery();
+            if(rs.next()){
+                String codeBat = rs.getString(2);
+                Double supSingle = rs.getDouble(3);
+                
+                b = new Bateau(codeBat, supSingle);
+            }
+        }catch(SQLException e){
+            System.out.println("Erreur lors de la recherche de Bateau "+ e);
+        }finally {
+            try{
+                if(rs != null){
+                    rs.close();
+                }
+            }catch(SQLException e){
+                System.out.println("Erreur de fermeture de resultset "+ e);
+            }
+            try{
+                if(pstm != null){
+                    pstm.close();
+                }
+            }catch(SQLException e){
+                System.out.println("Erreur de fermeture de preparedstatement "+ e);
+            }
+        }
+        return b;
     }
+   
+    @Override
+    public Port getPort(String codePort){
+        String query = "select * from PORT where CODE_PORT= ?";
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        Port p = null;
+        try{
+            pstm = dbconnect.prepareStatement(query);
+            pstm.setString(1, codePort);
+            rs=pstm.executeQuery();
+            if(rs.next()){
+                String codeP = rs.getString(2);
+                String ville = rs.getString(3);
+                String pays = rs.getString(4);
+                
+                p = new Port(codeP, ville, pays);
+            }
+        }catch(SQLException e){
+            System.out.println("Erreur lors de la recherche de Bateau "+ e);
+        }finally {
+            try{
+                if(rs != null){
+                    rs.close();
+                }
+            }catch(SQLException e){
+                System.out.println("Erreur de fermeture de resultset "+ e);
+            }
+            try{
+                if(pstm != null){
+                    pstm.close();
+                }
+            }catch(SQLException e){
+                System.out.println("Erreur de fermeture de preparedstatement "+ e);
+            }
+        }
+        return p;
+    }
+    
 }
+
