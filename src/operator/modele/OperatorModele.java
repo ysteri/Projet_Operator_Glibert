@@ -24,9 +24,15 @@ public class OperatorModele {
      * liste de tous les ports
      */
     protected List<Port> mesPorts = new ArrayList<>();
-
+    
+    /**
+     * liste de tous les vols
+     */
     protected List<Vol> mesVols = new ArrayList<>();
 
+    /**
+     * liste de tous les aéroports
+     */
     protected List<Aeroport> mesAeroports = new ArrayList<>();
 
     /**
@@ -97,7 +103,12 @@ public class OperatorModele {
         lg.ajouter("Port " + p + " enregistré !");
         return "Ajout port effectué !";
     }
-
+    
+    /**
+     * méthode permettant l'ajout d'un builder aéroport
+     * @param a aéroport à ajouter
+     * @return diagnostic de l'ajout
+     */
     public String ajouterAeroport(Aeroport a) {
         Aeroport.AeroportBuilder ab = new Aeroport.AeroportBuilder();
         ab.setCodeAeroport(a.getCodeAeroport()).
@@ -229,6 +240,13 @@ public class OperatorModele {
         }
     }
 
+    /**
+     * méthode qui affilie un port à un bateau
+     * @param b
+     * @param p
+     * @param p2
+     * @return le diagnostic de l'affiliation
+     */
     public String affilierPort(Bateau b, Port p, Port p2) {
         b.setDepartPort(p);
         b.setArriveePort(p2);
@@ -307,6 +325,9 @@ public class OperatorModele {
         }
     }
 
+    /**
+     * méthode qui va ajouter des données automatiquement dans la liste des aéroports et vols
+     */
     public void populateAeroportVol() {
         mesVols.addAll(Arrays.asList(
                 new Vol("Vol1", new Aeroport("Ae1", "Air-Line", "Bruxelles", "Belgique"), new Aeroport("Ae2", "Fresh", "Paris", "France")),
@@ -323,6 +344,9 @@ public class OperatorModele {
         );
     }
 
+    /**
+     * méthode qui va ajouter des données automatiquement dans la liste des ports
+     */
     public void populatePort() {
         mesPorts.addAll(Arrays.asList(
                 new Port("A1", "Marseille", "France"),

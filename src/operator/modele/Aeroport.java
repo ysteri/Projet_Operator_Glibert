@@ -8,25 +8,29 @@ import java.util.*;
 public class Aeroport {
 
     /**
-     *
+     *variable alphanumérique contenant le code
      */
     private String codeAeroport;
 
     /**
-     *
+     *variable String contenant le nom
      */
     private String nom;
 
     /**
-     *
+     *variable String contenant la ville
      */
     private String ville;
 
     /**
-     *
+     *variable String contenant le pays
      */
     private String pays;
 
+    /**
+     * constructeur builder
+     * @param ab aeroport builder
+     */
     private Aeroport(AeroportBuilder ab) {
         this.codeAeroport = ab.codeAeroport;
         this.nom = ab.nom;
@@ -34,10 +38,20 @@ public class Aeroport {
         this.pays = ab.pays;
     }
 
+    /**
+     * constructeur par défaut
+     */
     public Aeroport() {
-        //constructeur par défaut
+ 
     }
 
+    /**
+     * constructeur complet
+     * @param codeAeroport
+     * @param nom
+     * @param ville
+     * @param pays 
+     */
     public Aeroport(String codeAeroport, String nom, String ville, String pays) {//constructeur complet
         this.codeAeroport = codeAeroport;
         this.nom = nom;
@@ -45,12 +59,17 @@ public class Aeroport {
         this.pays = pays;
     }
 
+    /**
+     * constructeur de recherche
+     * @param codeAeroport 
+     */
     public Aeroport(String codeAeroport) {//constructeur rech
         this.codeAeroport = codeAeroport;
     }
 
     /**
-     * @return
+     * méthode qui récupère le code de l'aéroport
+     * @return le code de l'aéroport
      */
     public String getCodeAeroport() {
         // TODO implement here
@@ -58,7 +77,8 @@ public class Aeroport {
     }
 
     /**
-     * @return
+     * méthode qui récupère le nom
+     * @return nom
      */
     public String getNom() {
         // TODO implement here
@@ -66,7 +86,8 @@ public class Aeroport {
     }
 
     /**
-     * @return
+     * méthode qui récupère la ville
+     * @return ville
      */
     public String getVille() {
         // TODO implement here
@@ -74,19 +95,27 @@ public class Aeroport {
     }
 
     /**
-     * @return
+     * méthode qui récupère le pays
+     * @return pays
      */
     public String getPays() {
         // TODO implement here
         return pays;
     }
 
+    /**
+     * méthode qui affiche les infos de l'aéroport
+     * @return infos
+     */
     @Override
     public String toString() {
         return "codeAeroport=" + codeAeroport + ", nom=" + nom
                 + ", ville=" + ville + ", pays=" + pays;
     }
 
+    /**
+     * builder de la classe
+     */
     public static class AeroportBuilder {
 
         private String codeAeroport;
@@ -128,6 +157,11 @@ public class Aeroport {
         }
     }
 
+    /**
+     * méthode redéfinie qui donne un hashcode aux variables du constructeur
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 3;
@@ -138,6 +172,12 @@ public class Aeroport {
         return hash;
     }
 
+    /**
+     * méthode redéfinie qui compare des objets en paramètre
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

@@ -21,6 +21,9 @@ public class OperatorModeleJDBC extends OperatorModele {
 
     Connection dbconnect;
 
+    /**
+     * constructeur de la classe pour se connecter à la bd
+     */
     public OperatorModeleJDBC() {
         dbconnect = DBConnection.getConnection();
         if (dbconnect == null) {
@@ -29,6 +32,9 @@ public class OperatorModeleJDBC extends OperatorModele {
         }
     }
 
+    /**
+     * méthode qui permet de se déconnecter de la bd
+     */
     public void close() {
         try {
             dbconnect.close();
@@ -37,16 +43,26 @@ public class OperatorModeleJDBC extends OperatorModele {
         }
     }
 
+    /**
+     * Override de la méthode populatearoportvol modele
+     */
     @Override
     public void populateAeroportVol() {
         //ne rien faire car données déjà présentes dans BD
     }
 
+    /**
+     * Override de la méthode populateport modele
+     */
     @Override
     public void populatePort() {
         //ne rien faire car données déjà présentes dans BD
     }
 
+    /**
+     * méthode qui retourne toutes les lignes de la table BATEAU
+     * @return liste bateau
+     */
     @Override
     public List<Bateau> tousBateaux() {
         String query = "select * from BATEAU ";
@@ -87,6 +103,10 @@ public class OperatorModeleJDBC extends OperatorModele {
         return lb;
     }
 
+    /**
+     * méthode qui retourne toutes les lignes de la table PORT
+     * @return liste des ports
+     */
     @Override
     public List<Port> tousPorts() {
         String query = "select * from PORT ";
@@ -126,6 +146,10 @@ public class OperatorModeleJDBC extends OperatorModele {
         return lp;
     }
     
+    /**
+     * méthode qui retourne toutes les lignes de la table VOL
+     * @return la liste des vols
+     */
     @Override
     public List<Vol> tousVols() {
         String query = "select * from VOL ";
@@ -165,6 +189,10 @@ public class OperatorModeleJDBC extends OperatorModele {
         return lv;
     }
     
+    /**
+     * méthode qui retourne toutes les lignes de la table AEROPORT
+     * @return la liste des aéroports
+     */
     @Override
     public List<Aeroport> tousAeroports() {
         String query = "select * from AEROPORT ";
@@ -205,6 +233,11 @@ public class OperatorModeleJDBC extends OperatorModele {
         return la;
     }
 
+    /**
+     * méthode qui retourne la ligne recherchée dans la table BATEAU
+     * @param codeBateau
+     * @return ligne bateau
+     */
     @Override
     public Bateau getBateau(String codeBateau) {
         String query = "select * from BATEAU where CODE_BATEAU= ?";
@@ -244,6 +277,11 @@ public class OperatorModeleJDBC extends OperatorModele {
         return b;
     }
 
+    /**
+     * méthode qui retourne la ligne de la table PORT recherchée
+     * @param codePort
+     * @return ligne port
+     */
     @Override
     public Port getPort(String codePort) {
         String query = "select * from PORT where CODE_PORT= ?";
@@ -282,6 +320,11 @@ public class OperatorModeleJDBC extends OperatorModele {
         return p;
     }
     
+    /**
+     * méthode qui retourne la ligne de la table VOL recherchée
+     * @param codeVol
+     * @return 
+     */
     @Override
     public Vol getVol(String codeVol) {
         String query = "select * from VOL where CODE_VOL= ?";
@@ -318,6 +361,11 @@ public class OperatorModeleJDBC extends OperatorModele {
         return v;
     }
     
+    /**
+     * méthode qui retourrne la ligne de la table AEROPORT recherchée
+     * @param codeAeroport
+     * @return 
+     */
     @Override
     public Aeroport getAeroport(String codeAeroport) {
         String query = "select * from AEROPORT where CODE_AEROPORT= ?";
@@ -356,7 +404,12 @@ public class OperatorModeleJDBC extends OperatorModele {
         }
         return a;
     }
-
+    
+    /**
+     * méthode qui ajoute un bateau dans la BATEAU
+     * @param b
+     * @return bateau
+     */
     @Override
     public String ajouterBateau(Bateau b) {
         String msg;
@@ -388,6 +441,11 @@ public class OperatorModeleJDBC extends OperatorModele {
         return msg;
     }
 
+    /**
+     * méthode qui ajoute un port dans la table PORT
+     * @param p
+     * @return port
+     */
     @Override
     public String ajouterPort(Port p) {
         String msg;
@@ -418,6 +476,11 @@ public class OperatorModeleJDBC extends OperatorModele {
         return msg;
     }
     
+    /**
+     * méthode qui ajoute un vol dans la table VOL
+     * @param v
+     * @return vol
+     */
     @Override
     public String ajouterVol(Vol v) {
         String msg;
@@ -448,6 +511,11 @@ public class OperatorModeleJDBC extends OperatorModele {
         return msg;
     }
     
+    /**
+     * méthode qui ajoute un aéroport dans la table AEROPORT
+     * @param a
+     * @return aeroport
+     */
     @Override
     public String ajouterAeroport(Aeroport a) {
         String msg;
@@ -479,6 +547,12 @@ public class OperatorModeleJDBC extends OperatorModele {
         return msg;
     }
 
+    /**
+     * méthode qui modifie le supplément single d'une ligne de la table BATEAU
+     * @param b
+     * @param supSingle
+     * @return bateau
+     */
     @Override
     public String modifSupSingle(Bateau b, double supSingle) {
         String query = "UPDATE BATEAU SET SUP_SINGLE= ? where CODE_BATEAU= ?";
@@ -508,6 +582,11 @@ public class OperatorModeleJDBC extends OperatorModele {
         return msg;
     }
 
+    /**
+     * méthode qui supprime une ligne de la table BATEAU
+     * @param b
+     * @return bateau
+     */
     @Override
     public String suppBateau(Bateau b) {
         String query = "DELETE FROM BATEAU WHERE CODE_BATEAU= ?";
@@ -536,6 +615,11 @@ public class OperatorModeleJDBC extends OperatorModele {
         return msg;
     }
 
+    /**
+     * méthode qui supprime une ligne de la table PORT
+     * @param p
+     * @return port
+     */
     @Override
     public String suppPort(Port p) {
         String query = "DELETE FROM PORT WHERE CODE_PORT= ?";
@@ -564,6 +648,11 @@ public class OperatorModeleJDBC extends OperatorModele {
         return msg;
     }
     
+    /**
+     * méthode qui supprime une ligne de la table VOL
+     * @param v
+     * @return vol
+     */
     @Override
     public String suppVol(Vol v) {
         String query = "DELETE FROM VOL WHERE CODE_VOL= ?";
@@ -592,6 +681,11 @@ public class OperatorModeleJDBC extends OperatorModele {
         return msg;
     }
     
+    /**
+     * méthode qui supprime une ligne de la table AEROPORT
+     * @param a
+     * @return aeroport
+     */
     @Override
     public String suppAeroport(Aeroport a) {
         String query = "DELETE FROM AEROPORT WHERE CODE_AEROPORT= ?";

@@ -64,6 +64,13 @@ public class Bateau extends Deplacement {
         this.supSingle = supSingle;
     }
     
+    /**
+     * constructeur ajout jdbc
+     * @param codeBateau
+     * @param supSingle
+     * @param depPort
+     * @param arrPort 
+     */
     public Bateau(String codeBateau, double supSingle,String depPort, String arrPort){
         this.codeBateau = codeBateau;
         this.supSingle=supSingle;
