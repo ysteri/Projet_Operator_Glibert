@@ -216,10 +216,12 @@ public class OperatorModeleJDBC extends OperatorModele {
             pstm.setString(1, codeBateau);
             rs = pstm.executeQuery();
             if (rs.next()) {
-                String codeBat = rs.getString(2);
-                Double supSingle = rs.getDouble(3);
-
-                b = new Bateau(codeBat, supSingle);
+                String codeBat = rs.getString(1);
+                Double supSingle = rs.getDouble(2);
+                String depPort = rs.getString(3);
+                String arrPort = rs.getString(4);
+                
+                b = new Bateau(codeBat, supSingle, depPort, arrPort);
             }
         } catch (SQLException e) {
             System.out.println("Erreur lors de la recherche de Bateau " + e);
@@ -253,9 +255,9 @@ public class OperatorModeleJDBC extends OperatorModele {
             pstm.setString(1, codePort);
             rs = pstm.executeQuery();
             if (rs.next()) {
-                String codeP = rs.getString(2);
-                String ville = rs.getString(3);
-                String pays = rs.getString(4);
+                String codeP = rs.getString(1);
+                String ville = rs.getString(2);
+                String pays = rs.getString(3);
 
                 p = new Port(codeP, ville, pays);
             }

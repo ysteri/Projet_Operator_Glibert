@@ -63,6 +63,13 @@ public class Bateau extends Deplacement {
         this.codeBateau = codeBateau;
         this.supSingle = supSingle;
     }
+    
+    public Bateau(String codeBateau, double supSingle,String depPort, String arrPort){
+        this.codeBateau = codeBateau;
+        this.supSingle=supSingle;
+        this.depPort = depPort;
+        this.arrPort= arrPort;
+    }
 
     /**
      * retourne le code alphanumérique d'un voyage en bateau
