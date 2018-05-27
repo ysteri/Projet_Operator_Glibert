@@ -44,6 +44,10 @@ public class Aeroport {
         this.ville=ville;
         this.pays=pays;
     }
+    
+    public Aeroport(String codeAeroport){//constructeur rech
+        this.codeAeroport=codeAeroport;
+    }
  
     /**
      * @return

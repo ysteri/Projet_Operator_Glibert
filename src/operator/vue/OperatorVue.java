@@ -10,7 +10,6 @@ import operator.modele.Port;
 import operator.modele.Aeroport;
 import operator.modele.Vol;
 import java.util.*;
-import operator.modele.Aeroport.AeroportBuilder;
 /**
  *
  * @author Thoma
@@ -22,6 +21,8 @@ public class OperatorVue {
         List<String> listeOptions = new ArrayList<>(Arrays.asList(
             "Gestion des bateaux",
             "Gestion des ports",
+            "Gestion des aéroports",
+            "Gestion des vols",
             "Fin"));
         affListe(listeOptions);
         
@@ -41,6 +42,8 @@ public class OperatorVue {
         List<String> listeOptions = new ArrayList<>(Arrays.asList(
             "Ajouter un port",
             "Afficher les ports",
+            "Rechercher un port",
+            "Supprimer un port",
             "Retour"));
         affListe(listeOptions);
         
@@ -61,8 +64,52 @@ public class OperatorVue {
             "Ajouter un bateau",
             "Affilier un port",
             "Afficher les bateaux",
+            "Rechercher un port",
             "Modifier le supplément single",
             "Supprimer un bateau",
+            "Retour"));
+        affListe(listeOptions);
+        
+        int choix;
+        do{
+            String choixs = getMsg("Votre choix : ");
+            choix = Integer.parseInt(choixs);
+            if (choix > 0 && choix <=listeOptions.size()){
+                break;
+            }
+            affMsg("choix incorrect");
+        }while(true);
+        return choix;
+    }
+    
+    public int menuVol(){
+        List<String> listeOptions = new ArrayList<>(Arrays.asList(
+            "Ajouter un vol",
+            "Affilier un aéroport",
+            "Afficher les vols",
+            "Rechercher un vol",
+            "Supprimer un vol",
+            "Retour"));
+        affListe(listeOptions);
+        
+        int choix;
+        do{
+            String choixs = getMsg("Votre choix : ");
+            choix = Integer.parseInt(choixs);
+            if (choix > 0 && choix <=listeOptions.size()){
+                break;
+            }
+            affMsg("choix incorrect");
+        }while(true);
+        return choix;
+    }
+    
+    public int menuAeroport(){
+        List<String> listeOptions = new ArrayList<>(Arrays.asList(
+            "Ajouter un aéroport",
+            "Afficher les aéroports",
+            "Rechercher un aéroport",
+            "Supprimer un aéroport",
             "Retour"));
         affListe(listeOptions);
         
@@ -88,6 +135,18 @@ public class OperatorVue {
         String codeBateau;
         codeBateau = getMsg("Code du bateau : ");
         return codeBateau;
+    }
+    
+    public String rechAeroport(){
+        String codeAeroport;
+        codeAeroport = getMsg("Code de l'aéroport : ");
+        return codeAeroport;
+    }
+            
+    public String rechVol(){
+        String codeVol;
+        codeVol = getMsg("Code du vol : ");
+        return codeVol;
     }
     
     public Bateau encodeBateau(){
@@ -118,6 +177,12 @@ public class OperatorVue {
         String pays = sc.nextLine();
         Aeroport a = new Aeroport(codeAeroport, nom, ville, pays);
         return a;
+    }
+    
+    public Vol encodeVol(){
+        String codeVol = getMsg("Entrez le code du vol : ");
+        Vol v = new Vol(codeVol);
+        return v;
     }
 
     public void affBateau(Bateau b){

@@ -49,6 +49,23 @@ public class OperatorModele {
         return "Ajout bateau effectué !";
     }
     /**
+     * méthode permettant l'ajout d'un vol
+     * @param v vol à ajouter
+     * @return diagnostic de l'ajout
+     */
+    public String ajouterVol(Vol v){
+        if(v==null)return "Vol null !";
+        if(mesVols.contains(v)){
+            Log lg=Log.getInstance();
+            lg.ajouter("Refus de l'ajout de "+v+" !");
+            return "Vol déjà Enregistré !";
+        }
+        mesVols.add(v);
+        Log lg=Log.getInstance();
+        lg.ajouter("Vol "+v+" enregistré !");
+        return "Ajout vol effectué !";
+    }
+    /**
      * méthode permettant l'ajout d'un port
      * @param p port à ajouter
      * @return diagnostic de l'ajout
@@ -106,6 +123,22 @@ public class OperatorModele {
         mesPorts.sort(new CodePortComparator());
         return mesPorts;
     }
+      /**
+     * méthode permettant de retrouver tous les vols
+     * @return tous les vols
+     */
+    public List<Vol> tousVols(){
+        mesVols.sort(new CodeVolComparator());
+        return mesVols;
+    }
+    /**
+     * méthode permettant de retrouver tous les ports
+     * @return tous les ports
+     */
+    public List<Aeroport> tousAeroports(){
+        mesAeroports.sort(new CodeAeroportComparator());
+        return mesAeroports;
+    }
     /**
      * méthode permettant de trouver un voyage en bateau sur base de son code
      * @param codeBateau object encapsulant le code 
@@ -127,6 +160,29 @@ public class OperatorModele {
         int containt = mesPorts.indexOf(p);
         if(containt<0)return null;
         else return mesPorts.get(containt);
+    }
+    
+     /**
+     * méthode permettant de trouver un vol sur base de son code
+     * @param codeVol object encapsulant le code 
+     * @return vol trouvé ou null si aucun ne correspond
+     */
+    public Vol getVol(String codeVol){
+        Vol v = new Vol(codeVol);
+        int containt = mesVols.indexOf(v);
+        if(containt<0)return null;
+        else return mesVols.get(containt);
+    }
+    /**
+     * méthode permettant de trouver un Aeroport sur base de son code
+     * @param codeAeroport object encapsulant le code
+     * @return Aeroport trouvé ou null si aucun ne correspond
+     */
+    public Aeroport getAeroport(String codeAeroport){
+        Aeroport a = new Aeroport(codeAeroport);
+        int containt = mesAeroports.indexOf(a);
+        if(containt<0)return null;
+        else return mesAeroports.get(containt);
     }
     
     public String affilierPort(Bateau b, Port p, Port p2){
@@ -165,6 +221,27 @@ public class OperatorModele {
         boolean ok = mesPorts.remove(p);
         if(ok) return "Port supprimé !";
         else return "Port introuvable ou suppression impossible !";
+    }
+    
+    /**
+     * méthode permettant de supprimer un vol
+     * @param v vol à supprimer
+     * @return diagnostic de la suppression
+     */
+    public String suppVol(Vol v){
+        boolean ok = mesVols.remove(v);
+        if(ok) return "Vol supprimé !";
+        else return "Vol introuvable ou suppression impossible !";
+    }
+    /**
+     * méthode permettant de supprimer un aéroport
+     * @param a aéroport à supprimer
+     * @return diagnostic de la suppression
+     */
+    public String suppAeroport(Aeroport a){
+        boolean ok = mesAeroports.remove(a);
+        if(ok) return "Aéroport supprimé !";
+        else return "Aéroport introuvable ou suppression impossible !";
     }
     
     public void populateAeroportVol(){

@@ -27,7 +27,11 @@ public class Vol extends Deplacement{
         //constructeur par défaut
     }
     
-    public Vol(String codeVol, Aeroport departAeroport,Aeroport arriveeAeroport){//constructeur complet
+    public Vol(String codeVol){//constructeur ajout/rech
+        this.codeVol=codeVol;
+    }
+    
+    public Vol(String codeVol, Aeroport departAeroport, Aeroport arriveeAeroport){
         this.codeVol=codeVol;
         this.departAeroport=departAeroport;
         this.arriveeAeroport=arriveeAeroport;
