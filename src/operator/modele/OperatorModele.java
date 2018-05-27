@@ -75,7 +75,7 @@ public class OperatorModele {
         if (mesVols.contains(v)) {
             Log lg = Log.getInstance();
             lg.ajouter("Refus de l'ajout de " + v + " !");
-            return "Vol déjà Enregistré !";
+            return "Vol déjà enregistré !";
         }
         mesVols.add(v);
         Log lg = Log.getInstance();
@@ -128,7 +128,7 @@ public class OperatorModele {
             }
             mesAeroports.add(ae);
             Log lg = Log.getInstance();
-            lg.ajouter("Aeroport" + ae + " enregistré !");
+            lg.ajouter("Aéroport" + ae + " enregistré !");
             return "Ajout aéroport effectué !";
         } catch (Exception e) {
             System.out.println("Erreur de création " + e);
